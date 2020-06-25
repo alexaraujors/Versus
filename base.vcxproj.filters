@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Inventario.cpp">
+      <Filter>Inventario</Filter>
+    </ClCompile>
+    <ClCompile Include="Personagem.cpp">
+      <Filter>Personagem</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemInventario.cpp">
+      <Filter>ItensInventario</Filter>
+    </ClCompile>
+    <ClCompile Include="CadeiraItem.cpp">
+      <Filter>CadeiraItem</Filter>
+    </ClCompile>
+    <ClCompile Include="Jogo.cpp">
+      <Filter>Jogo</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Pessoa.cpp">
+      <Filter>Pessoa</Filter>
+    </ClCompile>
+    <ClCompile Include="Idoso.cpp">
+      <Filter>Pessoa</Filter>
+    </ClCompile>
+    <ClCompile Include="Jovem.cpp">
+      <Filter>Pessoa</Filter>
+    </ClCompile>
+    <ClCompile Include="Recorde.cpp">
+      <Filter>Recorde</Filter>
+    </ClCompile>
+    <ClCompile Include="HighScores.cpp">
+      <Filter>Recorde</Filter>
+    </ClCompile>
+    <ClCompile Include="Bonus.cpp">
+      <Filter>Bonus</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inventario.h">
+      <Filter>Inventario</Filter>
+    </ClInclude>
+    <ClInclude Include="Personagem.h">
+      <Filter>Personagem</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemInventario.h">
+      <Filter>ItensInventario</Filter>
+    </ClInclude>
+    <ClInclude Include="CadeiraItem.h">
+      <Filter>CadeiraItem</Filter>
+    </ClInclude>
+    <ClInclude Include="Jogo.h">
+      <Filter>Jogo</Filter>
+    </ClInclude>
+    <ClInclude Include="Pessoa.h">
+      <Filter>Pessoa</Filter>
+    </ClInclude>
+    <ClInclude Include="Idoso.h">
+      <Filter>Pessoa</Filter>
+    </ClInclude>
+    <ClInclude Include="Jovem.h">
+      <Filter>Pessoa</Filter>
+    </ClInclude>
+    <ClInclude Include="Recorde.h">
+      <Filter>Recorde</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScores.h">
+      <Filter>Recorde</Filter>
+    </ClInclude>
+    <ClInclude Include="Bonus.h">
+      <Filter>Bonus</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Inventario">
+      <UniqueIdentifier>{731c1564-a7d8-405d-9b75-81d89d26fe57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Personagem">
+      <UniqueIdentifier>{3ec35fdb-f355-4415-9277-1873a72b21cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ItensInventario">
+      <UniqueIdentifier>{72659d4a-5d94-4ec9-b75e-10d7ca77a1be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CadeiraItem">
+      <UniqueIdentifier>{40843dfc-e16b-4860-b3e1-7fb26cac7ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Jogo">
+      <UniqueIdentifier>{ca2457c4-32b6-488b-96c9-cd1d8f1124b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{6bf07dc2-6857-4c8f-a312-26877de5d8d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pessoa">
+      <UniqueIdentifier>{60c5f6f4-59d9-4f1a-b046-2f73514fbbd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Recorde">
+      <UniqueIdentifier>{96e80287-a2b8-4cb5-9606-0ceee4e56fa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bonus">
+      <UniqueIdentifier>{4b3d448a-8c6a-4e0e-9f15-f61dd160ef1b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
