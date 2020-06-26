@@ -101,92 +101,271 @@
     <Filter Include="Bonus">
       <UniqueIdentifier>{4b3d448a-8c6a-4e0e-9f15-f61dd160ef1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bin">
+      <UniqueIdentifier>{f574428f-c815-48fb-9f9c-687081b0f28c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bin\assets">
+      <UniqueIdentifier>{4ba01009-0a79-47ec-a5a6-9acf21768738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bin\assets\background">
+      <UniqueIdentifier>{498a4654-3fcb-4b32-910a-7e03a5e05c31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bin\assets\mapa">
+      <UniqueIdentifier>{0bfce648-779e-4bed-b591-cf201acfd7d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bin\assets\piskel">
+      <UniqueIdentifier>{e9565086-1e15-4d14-92e9-f318e1fa733a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bin\assets\tilesets">
+      <UniqueIdentifier>{0fb1fbda-a867-47f6-aa7b-6db242a4501d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bin\assets\char">
+      <UniqueIdentifier>{744d795e-1856-405b-bd73-c0d3a4c7bc11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bin\assets\texto">
+      <UniqueIdentifier>{8e4167a0-e0b8-4cf7-ac85-b47259ae7a3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="bin\assets\background\Arena Tileset.png" />
-    <Image Include="bin\assets\background\arena_castle_672x320.png" />
-    <Image Include="bin\assets\background\arena_city_672x320.png" />
-    <Image Include="bin\assets\background\arena_minecraft_672x320.png" />
-    <Image Include="bin\assets\background\arena_modern_672x320.png" />
-    <Image Include="bin\assets\background\arena_sand_672x320.png" />
-    <Image Include="bin\assets\background\arena_stone_672x320.png" />
-    <Image Include="bin\assets\background\arena_tiled_672x320.png" />
-    <Image Include="bin\assets\background\arena_zelda_672x320.png" />
-    <Image Include="bin\assets\background\battle_arena_800x384.png" />
-    <Image Include="bin\assets\background\beate-nieuwoudt-arena-03-closeup.jpg" />
-    <Image Include="bin\assets\char\bolsonaro.png" />
-    <Image Include="bin\assets\char\bonus.png" />
-    <Image Include="bin\assets\char\doente.png" />
-    <Image Include="bin\assets\char\idoso.png" />
-    <Image Include="bin\assets\char\jovem.png" />
-    <Image Include="bin\assets\char\poderoso.png" />
-    <Image Include="bin\assets\mapa\png\bed.png" />
-    <Image Include="bin\assets\mapa\png\bed_carpet.png" />
-    <Image Include="bin\assets\mapa\png\bed_room.png" />
-    <Image Include="bin\assets\mapa\png\bed_room_full.png" />
-    <Image Include="bin\assets\mapa\png\books.png" />
-    <Image Include="bin\assets\mapa\png\box.png" />
-    <Image Include="bin\assets\mapa\png\carpet.png" />
-    <Image Include="bin\assets\mapa\png\chair.png" />
-    <Image Include="bin\assets\mapa\png\closet_01.png" />
-    <Image Include="bin\assets\mapa\png\closet_02.png" />
-    <Image Include="bin\assets\mapa\png\nightstand.png" />
-    <Image Include="bin\assets\mapa\png\pc.png" />
-    <Image Include="bin\assets\mapa\png\pc_table.png" />
-    <Image Include="bin\assets\mapa\png\pen_cup.png" />
-    <Image Include="bin\assets\mapa\png\pinpng.com-android-settings-icon-png-3278354.png" />
-    <Image Include="bin\assets\mapa\png\table.png" />
-    <Image Include="bin\assets\mapa\png\tileset_campo.png" />
-    <Image Include="bin\assets\mapa\png\trash.png" />
-    <Image Include="bin\assets\tilesets\blue_knight_288x160.png" />
-    <Image Include="bin\assets\tilesets\eletric_dragon_288x160.png" />
-    <Image Include="bin\assets\tilesets\gold_warrior_288x160.png" />
-    <Image Include="bin\assets\tilesets\green_wave_288x160.png" />
-    <Image Include="bin\assets\tilesets\hero_288x160.png" />
-    <Image Include="bin\assets\tilesets\jedi_288x160.png" />
-    <Image Include="bin\assets\tilesets\knight_288x160.png" />
-    <Image Include="bin\assets\tilesets\light_saber_288x160.png" />
-    <Image Include="bin\assets\tilesets\magic_288x160.png" />
-    <Image Include="bin\assets\tilesets\objects_32x32.png" />
-    <Image Include="bin\assets\tilesets\panda_288x160.png" />
-    <Image Include="bin\assets\tilesets\samurai_288x160.png" />
-    <Image Include="bin\assets\tilesets\skeleton_warrior288x160.png" />
-    <Image Include="bin\assets\tilesets\tiger_warrior_288x160.png" />
-    <Image Include="bin\assets\tilesets\vulcan_288x160.png" />
-    <Image Include="bin\assets\tilesets\witcher_288x160.png" />
+    <Image Include="bin\assets\background\Arena Tileset.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\beate-nieuwoudt-arena-03-closeup.jpg">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\battle_arena_800x384.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\arena_zelda_672x320.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\arena_tiled_672x320.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\arena_stone_672x320.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\arena_sand_672x320.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\arena_modern_672x320.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\arena_minecraft_672x320.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\arena_city_672x320.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\background\arena_castle_672x320.png">
+      <Filter>bin\assets\background</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\bed_room_full.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\bed_room.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\bed_carpet.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\bed.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\blue_knight_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\char\bonus.png">
+      <Filter>bin\assets\char</Filter>
+    </Image>
+    <Image Include="bin\assets\char\bolsonaro.png">
+      <Filter>bin\assets\char</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\books.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\box.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\closet_02.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\carpet.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\chair.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\closet_01.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\char\doente.png">
+      <Filter>bin\assets\char</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\eletric_dragon_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\hero_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\gold_warrior_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\green_wave_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\jedi_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\char\idoso.png">
+      <Filter>bin\assets\char</Filter>
+    </Image>
+    <Image Include="bin\assets\char\jovem.png">
+      <Filter>bin\assets\char</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\magic_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\knight_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\light_saber_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\nightstand.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\panda_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\objects_32x32.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\pinpng.com-android-settings-icon-png-3278354.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\pc.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\pc_table.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\pen_cup.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\char\poderoso.png">
+      <Filter>bin\assets\char</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\samurai_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\skeleton_warrior288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\tiger_warrior_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\vulcan_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\tilesets\witcher_288x160.png">
+      <Filter>bin\assets\tilesets</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\trash.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\table.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
+    <Image Include="bin\assets\mapa\png\tileset_campo.png">
+      <Filter>bin\assets\mapa</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="bin\assets\recordes.txt" />
-    <Text Include="bin\assets\mapa\campo_config.txt" />
-    <Text Include="bin\assets\mapa\png\campo_config.txt" />
+    <Text Include="bin\assets\mapa\campo_config.txt">
+      <Filter>bin\assets\mapa</Filter>
+    </Text>
+    <Text Include="bin\assets\mapa\png\campo_config.txt">
+      <Filter>bin\assets\mapa</Filter>
+    </Text>
+    <Text Include="bin\assets\recordes.txt">
+      <Filter>bin\assets</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="bin\assets\texto\F25_Bank_Printer.ttf" />
+    <None Include="bin\assets\mapa\png\bed_room.psd">
+      <Filter>bin\assets\mapa</Filter>
+    </None>
+    <None Include="bin\assets\piskel\blue_knight_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\eletric_dragon_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\gold_warrior_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\green_wave_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\hero_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\jedi_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\knight_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\light_saber_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\magic_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\objects_32x32.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\panda_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\samurai_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\skeleton_warrior288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\tiger_warrior_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\vulcan_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\piskel\witcher_288x160.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\mapa\novoquarto.json">
+      <Filter>bin\assets\mapa</Filter>
+    </None>
+    <None Include="bin\assets\mapa\mapaSoul.json">
+      <Filter>bin\assets\mapa</Filter>
+    </None>
+    <None Include="bin\assets\piskel\objects.piskel">
+      <Filter>bin\assets\piskel</Filter>
+    </None>
+    <None Include="bin\assets\mapa\pandemia.json">
+      <Filter>bin\assets\mapa</Filter>
+    </None>
+    <None Include="bin\assets\mapa\quarto.json">
+      <Filter>bin\assets\mapa</Filter>
+    </None>
+    <None Include="bin\assets\mapa\q2.json">
+      <Filter>bin\assets\mapa</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\assets\char\lcdcondominios-15-05-2020_1449.pdf" />
-    <None Include="bin\assets\mapa\mapaSoul.json" />
-    <None Include="bin\assets\mapa\novoquarto.json" />
-    <None Include="bin\assets\mapa\pandemia.json" />
-    <None Include="bin\assets\mapa\q2.json" />
-    <None Include="bin\assets\mapa\quarto.json" />
-    <None Include="bin\assets\mapa\png\bed_room.psd" />
-    <None Include="bin\assets\piskel\blue_knight_288x160.piskel" />
-    <None Include="bin\assets\piskel\eletric_dragon_288x160.piskel" />
-    <None Include="bin\assets\piskel\gold_warrior_288x160.piskel" />
-    <None Include="bin\assets\piskel\green_wave_288x160.piskel" />
-    <None Include="bin\assets\piskel\hero_288x160.piskel" />
-    <None Include="bin\assets\piskel\jedi_288x160.piskel" />
-    <None Include="bin\assets\piskel\knight_288x160.piskel" />
-    <None Include="bin\assets\piskel\light_saber_288x160.piskel" />
-    <None Include="bin\assets\piskel\magic_288x160.piskel" />
-    <None Include="bin\assets\piskel\objects.piskel" />
-    <None Include="bin\assets\piskel\objects_32x32.piskel" />
-    <None Include="bin\assets\piskel\panda_288x160.piskel" />
-    <None Include="bin\assets\piskel\samurai_288x160.piskel" />
-    <None Include="bin\assets\piskel\skeleton_warrior288x160.piskel" />
-    <None Include="bin\assets\piskel\tiger_warrior_288x160.piskel" />
-    <None Include="bin\assets\piskel\vulcan_288x160.piskel" />
-    <None Include="bin\assets\piskel\witcher_288x160.piskel" />
+    <Font Include="bin\assets\texto\F25_Bank_Printer.ttf">
+      <Filter>bin\assets\texto</Filter>
+    </Font>
   </ItemGroup>
 </Project>

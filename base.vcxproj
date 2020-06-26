@@ -188,7 +188,6 @@
     <Font Include="bin\assets\texto\F25_Bank_Printer.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\assets\char\lcdcondominios-15-05-2020_1449.pdf" />
     <None Include="bin\assets\mapa\mapaSoul.json" />
     <None Include="bin\assets\mapa\novoquarto.json" />
     <None Include="bin\assets\mapa\pandemia.json" />
