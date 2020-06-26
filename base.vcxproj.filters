@@ -37,6 +37,9 @@
     <ClCompile Include="Bonus.cpp">
       <Filter>Bonus</Filter>
     </ClCompile>
+    <ClCompile Include="Heroi.cpp">
+      <Filter>Personagem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inventario.h">
@@ -71,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="Bonus.h">
       <Filter>Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="Heroi.h">
+      <Filter>Personagem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

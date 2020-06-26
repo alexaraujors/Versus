@@ -102,6 +102,7 @@
   <ItemGroup>
     <ClCompile Include="Bonus.cpp" />
     <ClCompile Include="CadeiraItem.cpp" />
+    <ClCompile Include="Heroi.cpp" />
     <ClCompile Include="HighScores.cpp" />
     <ClCompile Include="Idoso.cpp" />
     <ClCompile Include="Inventario.cpp" />
@@ -116,6 +117,7 @@
   <ItemGroup>
     <ClInclude Include="Bonus.h" />
     <ClInclude Include="CadeiraItem.h" />
+    <ClInclude Include="Heroi.h" />
     <ClInclude Include="HighScores.h" />
     <ClInclude Include="Idoso.h" />
     <ClInclude Include="Inventario.h" />
