@@ -186,7 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="bin\assets\texto\F25_Bank_Printer.ttf" />
-    <Font Include="bin\fonte_padrao.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\assets\char\lcdcondominios-15-05-2020_1449.pdf" />
@@ -213,33 +212,6 @@
     <None Include="bin\assets\piskel\tiger_warrior_288x160.piskel" />
     <None Include="bin\assets\piskel\vulcan_288x160.piskel" />
     <None Include="bin\assets\piskel\witcher_288x160.piskel" />
-    <None Include="bin\HomeComa-debug.exe" />
-    <None Include="bin\HomeComa-debug.ilk" />
-    <None Include="bin\HomeComa-debug.pdb" />
-    <None Include="bin\libFLAC-8.dll" />
-    <None Include="bin\libfreetype-6.dll" />
-    <None Include="bin\libjpeg-9.dll" />
-    <None Include="bin\libmikmod-2.dll" />
-    <None Include="bin\libmodplug-1.dll" />
-    <None Include="bin\libogg-0.dll" />
-    <None Include="bin\libpng16-16.dll" />
-    <None Include="bin\libtiff-5.dll" />
-    <None Include="bin\libvorbis-0.dll" />
-    <None Include="bin\libvorbisfile-3.dll" />
-    <None Include="bin\libwebp-4.dll" />
-    <None Include="bin\Pandemia-debug.exe" />
-    <None Include="bin\Pandemia-debug.ilk" />
-    <None Include="bin\Pandemia-debug.pdb" />
-    <None Include="bin\SDL2.dll" />
-    <None Include="bin\SDL2_image.dll" />
-    <None Include="bin\SDL2_mixer.dll" />
-    <None Include="bin\SDL2_ttf.dll" />
-    <None Include="bin\smpeg2.dll" />
-    <None Include="bin\VC_redist.x86.exe" />
-    <None Include="bin\Versus-debug.exe" />
-    <None Include="bin\Versus-debug.ilk" />
-    <None Include="bin\Versus-debug.pdb" />
-    <None Include="bin\zlib1.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
