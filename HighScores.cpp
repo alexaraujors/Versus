@@ -1,5 +1,5 @@
 #include "HighScores.h"
-
+/*
 bool HighScores::bateuRecorde(float tempo)
 {
 	return tempo <= this->recorde.getTempo();
@@ -51,3 +51,4 @@ string HighScores::getRecorde()
 	int segundos = int(t) % 60;
 	return std::to_string(minutos) + ":" + std::to_string(segundos);
 }
+*/

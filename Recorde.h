@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
 using namespace std;
+#include <string>
 
 class Recorde
 {

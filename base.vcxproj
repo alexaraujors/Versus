@@ -100,33 +100,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bonus.cpp" />
-    <ClCompile Include="CadeiraItem.cpp" />
+    <ClCompile Include="Guerreiro.cpp" />
+    <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="Pocao.cpp" />
     <ClCompile Include="Heroi.cpp" />
     <ClCompile Include="HighScores.cpp" />
-    <ClCompile Include="Idoso.cpp" />
     <ClCompile Include="Inventario.cpp" />
-    <ClCompile Include="ItemInventario.cpp" />
     <ClCompile Include="Jogo.cpp" />
-    <ClCompile Include="Jovem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Personagem.cpp" />
-    <ClCompile Include="Pessoa.cpp" />
+    <ClCompile Include="PocaoDefesa.cpp" />
+    <ClCompile Include="PocaoForca.cpp" />
+    <ClCompile Include="PocaoVida.cpp" />
     <ClCompile Include="Recorde.cpp" />
+    <ClCompile Include="Salvamento.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bonus.h" />
-    <ClInclude Include="CadeiraItem.h" />
+    <ClInclude Include="Guerreiro.h" />
+    <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Pocao.h" />
     <ClInclude Include="Heroi.h" />
     <ClInclude Include="HighScores.h" />
-    <ClInclude Include="Idoso.h" />
     <ClInclude Include="Inventario.h" />
-    <ClInclude Include="ItemInventario.h" />
     <ClInclude Include="Jogo.h" />
-    <ClInclude Include="Jovem.h" />
     <ClInclude Include="Personagem.h" />
-    <ClInclude Include="Pessoa.h" />
+    <ClInclude Include="PocaoDefesa.h" />
+    <ClInclude Include="PocaoForca.h" />
+    <ClInclude Include="PocaoVida.h" />
     <ClInclude Include="Recorde.h" />
+    <ClInclude Include="Salvamento.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\assets\background\Arena Tileset.png" />
@@ -172,6 +174,7 @@
     <Image Include="bin\assets\tilesets\jedi_288x160.png" />
     <Image Include="bin\assets\tilesets\knight_288x160.png" />
     <Image Include="bin\assets\tilesets\light_saber_288x160.png" />
+    <Image Include="bin\assets\tilesets\logo_vs_102x128.png" />
     <Image Include="bin\assets\tilesets\magic_288x160.png" />
     <Image Include="bin\assets\tilesets\objects_32x32.png" />
     <Image Include="bin\assets\tilesets\panda_288x160.png" />
@@ -188,14 +191,19 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="bin\assets\texto\F25_Bank_Printer.ttf" />
+    <Font Include="bin\fonte_padrao.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
     <None Include="bin\assets\mapa\mapaSoul.json" />
     <None Include="bin\assets\mapa\novoquarto.json" />
     <None Include="bin\assets\mapa\pandemia.json" />
     <None Include="bin\assets\mapa\png\bed_room.psd" />
     <None Include="bin\assets\mapa\q2.json" />
     <None Include="bin\assets\mapa\quarto.json" />
+    <None Include="bin\assets\mapa\versus.json" />
+    <None Include="bin\assets\mapa\versus.tmx" />
     <None Include="bin\assets\piskel\blue_knight_288x160.piskel" />
     <None Include="bin\assets\piskel\eletric_dragon_288x160.piskel" />
     <None Include="bin\assets\piskel\gold_warrior_288x160.piskel" />
@@ -213,6 +221,30 @@
     <None Include="bin\assets\piskel\tiger_warrior_288x160.piskel" />
     <None Include="bin\assets\piskel\vulcan_288x160.piskel" />
     <None Include="bin\assets\piskel\witcher_288x160.piskel" />
+    <None Include="bin\libFLAC-8.dll" />
+    <None Include="bin\libfreetype-6.dll" />
+    <None Include="bin\libjpeg-9.dll" />
+    <None Include="bin\libmikmod-2.dll" />
+    <None Include="bin\libmodplug-1.dll" />
+    <None Include="bin\libogg-0.dll" />
+    <None Include="bin\libpng16-16.dll" />
+    <None Include="bin\libtiff-5.dll" />
+    <None Include="bin\libvorbis-0.dll" />
+    <None Include="bin\libvorbisfile-3.dll" />
+    <None Include="bin\libwebp-4.dll" />
+    <None Include="bin\Pandemia-debug.exe" />
+    <None Include="bin\Pandemia-debug.ilk" />
+    <None Include="bin\Pandemia-debug.pdb" />
+    <None Include="bin\SDL2.dll" />
+    <None Include="bin\SDL2_image.dll" />
+    <None Include="bin\SDL2_mixer.dll" />
+    <None Include="bin\SDL2_ttf.dll" />
+    <None Include="bin\smpeg2.dll" />
+    <None Include="bin\VC_redist.x86.exe" />
+    <None Include="bin\Versus-debug.exe" />
+    <None Include="bin\Versus-debug.ilk" />
+    <None Include="bin\Versus-debug.pdb" />
+    <None Include="bin\zlib1.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

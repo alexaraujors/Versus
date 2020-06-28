@@ -1,24 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="left-down" width="25" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="19" nextobjectid="4">
- <imagelayer id="12" name="Background"/>
- <layer id="18" name="Camada de Tiles 1" width="25" height="12">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="left-down" width="27" height="14" tilewidth="32" tileheight="32" infinite="0" nextlayerid="21" nextobjectid="27">
+ <tileset firstgid="1" name="objects_32x32" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../tilesets/objects_32x32.png" trans="dedede" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="battle_arena_800x384" tilewidth="800" tileheight="384" tilecount="1" columns="1">
+  <image source="../background/battle_arena_800x384.png" trans="dedede" width="800" height="384"/>
+ </tileset>
+ <tileset firstgid="18" name="logo_vs_128x167" tilewidth="128" tileheight="161" tilecount="1" columns="1">
+  <image source="../tilesets/logo_vs_128x161.png" trans="dedede" width="128" height="161"/>
+ </tileset>
+ <layer id="20" name="tiles2" width="27" height="14">
   <data encoding="csv">
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="5" name="Objetos">
-  <object id="2" name="warrior" x="350.28" y="287.902" width="31.9091" height="32"/>
-  <object id="1" name="hero" x="190.054" y="288.435" width="31.8696" height="31.7826"/>
+ <layer id="19" name="tiles" width="27" height="14">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,0,
+0,4,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,
+0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,
+0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="5" name="objetos">
+  <object id="2" name="warrior" x="384" y="288" width="31.9091" height="32"/>
+  <object id="1" name="hero" x="224" y="288" width="31.8696" height="31.7826"/>
+  <object id="4" name="p1" x="32.25" y="64.125" width="31.625" height="31.75"/>
+  <object id="5" name="p2" x="64.25" y="64.25" width="31.5" height="31.625"/>
+  <object id="6" name="p3" x="96" y="64.25" width="31.875" height="31.625"/>
+  <object id="7" name="p4" x="128.25" y="64.25" width="31.625" height="31.625"/>
+  <object id="8" name="p5" x="160.125" y="64.125" width="31.75" height="31.75"/>
+  <object id="9" name="h_vida" x="64.2917" y="128.375" width="31.5" height="31.5"/>
+  <object id="10" name="h_defesa" x="64.2917" y="159.917" width="31.625" height="32"/>
+  <object id="11" name="h_ataque" x="64.2917" y="192.042" width="31.625" height="32"/>
+  <object id="13" name="ouro" x="64.25" y="224.125" width="31.625" height="31.875"/>
+  <object id="14" name="w_vida" x="736.333" y="128.75" width="31.25" height="31"/>
+  <object id="15" name="w_defesa" x="736.583" y="160.5" width="31.25" height="31.5"/>
+  <object id="16" name="w_ataque" x="736.583" y="192.75" width="31.25" height="31.5"/>
+  <object id="21" name="1" x="43.5" y="45" width="9.25" height="19">
+   <text wrap="1" color="#00ffff">1</text>
+  </object>
+  <object id="22" name="2" x="76.125" y="45" width="9.25" height="19">
+   <text wrap="1" color="#00ffff">2</text>
+  </object>
+  <object id="23" name="3" x="107.625" y="44.75" width="9.25" height="19">
+   <text wrap="1" color="#00ffff">3</text>
+  </object>
+  <object id="24" name="4" x="140" y="44.75" width="9.25" height="19">
+   <text wrap="1" color="#00ffff">4</text>
+  </object>
+  <object id="25" name="5" x="171.125" y="44.25" width="9.25" height="19">
+   <text wrap="1" color="#00ffff">5</text>
+  </object>
+  <object id="26" name="action" x="320" y="384" width="32" height="32"/>
  </objectgroup>
 </map>

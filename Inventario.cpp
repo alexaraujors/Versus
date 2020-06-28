@@ -1,67 +1,67 @@
 using namespace std;
+
 #include "Inventario.h"
-#include "ItemInventario.h"
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
+//#include <iostream>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string>
 
 Inventario::Inventario()
 {
-	this->primeiroItem = nullptr;
+	primeira = nullptr;
+	numeroPocoes = 0;
 }
 
 Inventario::~Inventario()
 {
-
 }
 
-bool Inventario::adicionarItem(ItemInventario* item)
+bool Inventario::adicionarPocao(Pocao * pocao)
 {
-	if (this->primeiroItem == nullptr) {
-		this->primeiroItem = item;
+	if (this->primeira == nullptr) {
+		this->primeira = pocao;
+		numeroPocoes++;
 	}
 	else
 	{
-		ItemInventario* proximo = this->primeiroItem;
+		Pocao* proximo = this->primeira;
 		while (proximo->getProximo()!=nullptr)
 		{
 			proximo = proximo->getProximo();
 		}
-		proximo->setProximo(item);
+		proximo->setProximo(pocao);
+		numeroPocoes++;
 	}
 	return true;
 }
 
-bool Inventario::utilizarItem(string nome)
+/*
+bool Inventario::utilizarPocao(int numero, Heroi * heroi)
 {
-	ItemInventario* anterior = this->primeiroItem;
-	if (anterior != nullptr) {
-
-		if (anterior->getNome()._Equal(nome)) {
-			primeiroItem = primeiroItem->getProximo();
-			return true;
-		}
-		else 
+	if (numero <= numeroPocoes) {
+		Pocao* selecionado = primeira;
+		Pocao* anterior = nullptr;
+		for (int i = 1; i < numero; i++)
 		{
-			ItemInventario* proximo = anterior->getProximo();	
-			do
-			{
-				if (proximo->getNome() == nome) 
-				{
-					anterior->setProximo(proximo->getProximo());
-					return true;
-				}
-				else {
-					anterior = proximo;
-					proximo = proximo->getProximo();
-				}
-			} while (proximo==nullptr);
-			return false;
+			anterior = selecionado;
+			selecionado = selecionado->getProximo();
 		}
+
+		selecionado->usar(heroi);
+		anterior->setProximo(selecionado->getProximo());
+		delete selecionado;
+		numeroPocoes--;
 	}
+	return true;
+}
+*/
+
+Pocao * Inventario::getPrimeiraPocao()
+{
+	return primeira;
 }
 
+/*
 string Inventario::listar()
 {
 	string lista="";
@@ -73,3 +73,4 @@ string Inventario::listar()
 	}
 	return lista;
 }
+*/

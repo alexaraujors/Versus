@@ -3,6 +3,9 @@
 Personagem::Personagem()
 {
 	objeto = NULL;
+	vida = 100;
+	forca = 100;
+	defesa = 100;
 }
 
 Personagem::~Personagem()
@@ -15,11 +18,11 @@ void Personagem::inicializar(string sheet, ObjetoTileMap* objeto)
 	spr.setSpriteSheet(sheet);
 
 	//	setar ancora para os pes do personagem
-	spr.setAncora(0.5, 0.75);
+	spr.setAncora(0.1, 0.9);
 
 	//	set vel anim (4 frames por segundo)
-	spr.setVelocidadeAnimacao(getVelocidade());
-
+	spr.setVelocidadeAnimacao(5);
+	
 	//	Guardar o ponteiro do objeto
 	this->objeto = objeto;
 
@@ -29,31 +32,25 @@ void Personagem::inicializar(string sheet, ObjetoTileMap* objeto)
 	objeto->setSprite(&spr);
 
 	//	Setar valores iniciais
-	movendo = false;
-	inicio.x = objeto->getXCentro();
-	inicio.y = objeto->getYCentro();
+	inicio.x = objeto->getX();
+	inicio.y = objeto->getY();
 	destino.x = 0;
 	destino.y = 0;
-	interpolador = 0.0f;
-	vel = 2;
+	//interpolador = 0.0f;
 }
 
 void Personagem::atualizar()
 {
 	atualizarAnimacao();
-	atualizarMovimento();
+	//atualizarMovimento();
 }
 
-void Personagem::setDestino(float x, float y)
+void Personagem::atacar()
 {
-	destino.x = x;
-	destino.y = y;
-	movendo = true;
 }
 
-bool Personagem::estaMovendo()
+void Personagem::morrer()
 {
-	return movendo;
 }
 
 float Personagem::getX()
@@ -66,16 +63,6 @@ float Personagem::getY()
 	return objeto->getYCentro();
 }
 
-int Personagem::getVelocidade()
-{
-	return vel;
-}
-
-void Personagem::setVelocidade(int velocidade)
-{
-	this->vel = velocidade;
-}
-
 void Personagem::atualizaSprite(string sheet)
 {
 	spr.setSpriteSheet(sheet);
@@ -84,63 +71,31 @@ void Personagem::atualizaSprite(string sheet)
 
 void Personagem::atualizarAnimacao()
 {
-	//	Se está movendo
-	if (movendo)
-	{
-		//	Se está movendo para direita
-		if (destino.x - inicio.x > 0.0)
-		{
-			spr.setAnimacao(ANIMACAO_DIR);	//	setar animação
-		}
-		//	Se está movendo para esquerda
-		else if (destino.x - inicio.x < 0.0)
-		{
-			spr.setAnimacao(ANIMACAO_ESQ);	//	setar animação
-		}
-		//	Se está movendo para baixo
-		else if (destino.y - inicio.y > 0.0)
-		{
-			spr.setAnimacao(ANIMACAO_BAIXO); //	setar animação
-		}
-		//	Se está movendo para cima
-		else if (destino.y - inicio.y < 0.0)
-		{
-			spr.setAnimacao(ANIMACAO_CIMA);	//	setar animação
-		}
-
-		//	Avançar anim
-		spr.avancarAnimacao();
-	}
-	else
-	{
-		//	Se nao esta movendo, mostra o frame 0 (parado) e não avança a animação
-		spr.setFrame(0);
-	}
+	//	Avançar anim
+	spr.avancarAnimacao();
 }
 
 void Personagem::atualizarMovimento()
 {
-	if (movendo)
+	/*
+	//	Interpola posições
+	float x = inicio.x + (destino.x - inicio.x)*interpolador;
+	float y = inicio.y + (destino.y - inicio.y)*interpolador;
+
+	//	Avança interpolação com velocidade de vel (2.0) tiles por segundo;
+	interpolador += 0 * gTempo.getDeltaTempo();
+
+	//	Se interpolador chegou em, ou ultrapassou 100%,
+	if (interpolador >= 1.0)
 	{
-		//	Interpola posições
-		float x = inicio.x + (destino.x - inicio.x)*interpolador;
-		float y = inicio.y + (destino.y - inicio.y)*interpolador;
-
-		//	Avança interpolação com velocidade de vel (2.0) tiles por segundo;
-		interpolador += this->getVelocidade() * gTempo.getDeltaTempo();
-
-		//	Se interpolador chegou em, ou ultrapassou 100%,
-		if (interpolador >= 1.0)
-		{
-			interpolador = 0.0f;
-			x = destino.x;			//	x = x final
-			y = destino.y;			//	y = y final
-			inicio.x = destino.x;
-			inicio.y = destino.y;
-			movendo = false;		// para de mover
-		}
-
-		//	Setar posicao atual para o objeto no mapa
-		objeto->setPosCentro(x, y);
+		interpolador = 0.0f;
+		x = destino.x;			//	x = x final
+		y = destino.y;			//	y = y final
+		inicio.x = destino.x;
+		inicio.y = destino.y;
 	}
+
+	//	Setar posicao atual para o objeto no mapa
+	objeto->setPosCentro(x, y);
+	*/
 }

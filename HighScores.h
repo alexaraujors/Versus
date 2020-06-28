@@ -1,13 +1,14 @@
 #pragma once
-#include "Recorde.h"
-#include <fstream>
+//#include "Recorde.h"
+//#include <fstream>
 
 using namespace std;
 
 class HighScores
 {
+/*
 private:
-	Recorde recorde;
+	Recorde recorde = nullptr;
 	fstream arqRecordes;
 
 public:
@@ -16,5 +17,6 @@ public:
 	bool carregarRecordes();
 	bool salvarRecordes();
 	string getRecorde();
+	*/
 };
 

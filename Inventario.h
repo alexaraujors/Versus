@@ -1,24 +1,22 @@
 #pragma once
-#include "Item.h"
-#include <iostream>
-#include "ItemInventario.h"
+//#include <iostream>
+#include "Pocao.h"
+//#include "Heroi.h"
 
 class Inventario
 {
-public:
+	public:
+		Inventario();
+		~Inventario();
 
-	Inventario();
-	~Inventario();
+		bool adicionarPocao(Pocao * pocao);
+	//	bool utilizarPocao(int numero, Heroi * heroi);
 
-	bool adicionarItem(ItemInventario* item);
-	bool utilizarItem(string nomeitem);
+		Pocao * getPrimeiraPocao();
 
-	string listar();
-
-private:
-	ItemInventario* primeiroItem = nullptr;
-	
-
+	private:
+		Pocao * primeira;
+		int numeroPocoes = 0;
 };
 
 

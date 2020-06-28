@@ -1,10 +1,9 @@
 #pragma once
 #include "libUnicornio.h"
-#include "Personagem.h"
-#include "Jovem.h"
-#include "Idoso.h"
-#include "HighScores.h"
-#include "Bonus.h"
+#include "Heroi.h"
+#include "Guerreiro.h"
+//#include "HighScores.h"
+//#include "Bonus.h"
 
 class Jogo
 {
@@ -17,32 +16,28 @@ public:
 	void executar();
 
 private:
-	HighScores highScores;
+	//HighScores highScores;
 
 	void carregaRecordes();
-	void inicializarPessoas();
+	void inicializarGuerreiros();
 	void atualizarInput();
-	void atualizarPessoas();
+	void atualizarGuerreiros();
 	void desenharInstrucoes();
-	void desenharCronometro();
 
-	void verificaPoderoso();
-
-	//	metodos para colisao
-	void testarColisoes();
+	void verificaFinalBatalha();
 
 	//	atributos
 	TileMap mapa;
-	Personagem player;
+	Sprite action;
+
+	Heroi heroi;
+	Guerreiro bruxo;
+
 	Texto texto;
+	float inicioBatalha;
+	
 
-	Bonus obj1;
-	Bonus obj2;
-
-	float cronometro;
-	float timerPoderoso;
-
-	Pessoa * pessoas[5];
-	int contaDoentes = 0;
+//	float cronometro;
+//	int contaDoentes = 0;
 };
 
