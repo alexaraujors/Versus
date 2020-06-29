@@ -9,7 +9,7 @@ private:
     int pontuacao;
 
 public:
-    Recorde();
+    Recorde(string nome, int pontuacao);
     ~Recorde();
 
     string getNome();

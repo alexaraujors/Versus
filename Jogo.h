@@ -4,8 +4,7 @@
 #include "Guerreiro.h"
 #include "Painel.h"
 #include "SistemaLogin.h"
-
-//#include "HighScores.h"
+#include "HighScores.h"
 //#include "Bonus.h"
 
 enum Tela { tMenuPrincipal, tJogo, tCreditos, tPausa, tCadastrar, tLogin, tInicial, tRanking };
@@ -47,6 +46,7 @@ private:
 	Texto cabecalho, corpo;
 	bool bCancelaPodeTocar, bMovePodeTocar, bSelecionaPodeTocar;
 	Cor branco;
+	HighScores highScores;
 
 	void configurarBotoes(BotaoSprite* botao, float x, float y, string nome, string sprite);
 	void botaoLoop(BotaoSprite* botao, bool botaoDeVoltar);

@@ -138,7 +138,7 @@ void Jogo::executar()
 
 void Jogo::carregaRecordes()
 {
-	//this->highScores.carregarRecordes();
+	this->highScores.carregarRecordes();
 }
 
 void Jogo::atualizarInput()
@@ -377,7 +377,6 @@ void Jogo::telaLogin()
 
 void Jogo::telaRanking()
 {
-
 	configurarBotoes(&botaoVoltar, gJanela.getLargura() * 0.15, gJanela.getAltura() * 0.15, "< Voltar  ", "botaoPequeno");
 
 	if (gTeclado.pressionou[TECLA_ESC] || botaoVoltar.estaClicado()) pilhaTelas.pop();
@@ -387,7 +386,7 @@ void Jogo::telaRanking()
 	cabecalho.setString("Tela Ranking");
 	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
 
-
-
+	corpo.setString(highScores.getRecordes());
+	corpo.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4+100);
 }
 

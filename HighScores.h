@@ -1,6 +1,8 @@
 #pragma once
 #include "Recorde.h"
 #include <fstream>
+#include <list>
+
 
 using namespace std;
 
@@ -9,13 +11,13 @@ class HighScores
 
 private:
 	fstream arqRecordes;
-	Recorde* recordes[5];
+	list<Recorde> recordes;
+	bool comparaRecorde(Recorde &r1, Recorde &r2);
 
 public:
-	bool bateuRecorde(string nome, int valor);
-	void adicionarRecorde(Recorde rec);
+	void adicionarRecorde(string nome, int valor);
 	bool carregarRecordes();
 	bool salvarRecordes();
-	Recorde getRecorde(int posicao);
+	string getRecordes();
 };
 

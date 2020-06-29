@@ -1,8 +1,10 @@
 #include "Recorde.h"
 #include <string>
 
-Recorde::Recorde()
+Recorde::Recorde(string nome, int pontuacao)
 {
+	this->setNome(nome);
+	this->setPontuacao(pontuacao);
 }
 
 Recorde::~Recorde()

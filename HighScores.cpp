@@ -1,33 +1,43 @@
 #include "HighScores.h"
 
-bool HighScores::bateuRecorde(string nome, int valor)
+void HighScores::adicionarRecorde(string nome, int pontuacao)
 {
-	return tempo <= this->recorde.getTempo();
-}
-
-void HighScores::adicionarRecorde(Recorde rec)
-{
-	this->recordes[0] = &rec;
+	Recorde* rec = new Recorde(nome, pontuacao);
+	this->recordes.push_back(*rec);
 	this->salvarRecordes();
 }
 
-bool HighScores::carregarRecordes()
+bool comparator(Recorde r1, Recorde r2)
 {
+	return r1.getPontuacao() > r2.getPontuacao();
+}
+
+ bool HighScores::carregarRecordes()
+{
+
 	arqRecordes.open("assets/recordes.txt", std::ios::out | std::ios::in);
 	if (!arqRecordes.is_open()) {
 		return false;
 	}
 	else {
-		while (!arqRecordes.eof()) { //lê todos os recordes
-			Recorde recorde = new Recorde();
-			float valor;
+		while (!arqRecordes.eof())  //lê todos os recordes 
+		{
 			string nome;
+			int pontuacao;
+
+			// lê linha com nome e linha com pontuação
 			arqRecordes >> nome;
-			arqRecordes >> valor;
-			recorde->setPontuacao(valor);
-			recorde->setNome(nome);
-			this->recorde = *recorde;
+			arqRecordes >> pontuacao;
+
+			// cria recorde com nome e pontuação lidos
+			Recorde* recorde = new Recorde(nome, pontuacao);
+
+			// adiciona recorde no fim da lista
+			recordes.push_back(*recorde);		
 		}
+		// ordena a lista comparando as pontuações
+		recordes.sort(comparator);
+
 	}
 	arqRecordes.close();
 	return true;
@@ -41,21 +51,18 @@ bool HighScores::salvarRecordes()
 	}
 	else {
 		arqRecordes.clear();
-		arqRecordes << recorde.getTempo();
+		//arqRecordes << recorde.getTempo();
 	}
 	arqRecordes.close();
 	return true;
 }
 
-Recorde HighScores::getRecorde(int posicao)
+string HighScores::getRecordes()
 {
-	return recordes[posicao];
-}
-
-string HighScores::getRecorde()
-{
-	float t = this->recorde.getTempo();
-	int minutos = int(t) / 60;
-	int segundos = int(t) % 60;
-	return std::to_string(minutos) + ":" + std::to_string(segundos);
+	string retorno = "";
+	for each (Recorde rec in recordes)
+	{
+		retorno += rec.getNome() + " : " + to_string(rec.getPontuacao()) + "\n";
+	}
+	return retorno;
 }
