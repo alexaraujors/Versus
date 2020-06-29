@@ -12,7 +12,31 @@ Personagem::~Personagem()
 {
 }
 
-void Personagem::inicializar(string sheet, ObjetoTileMap* objeto)
+void Personagem::inicializar(string sheetParado, string sheetAtacando, string sheetMorrendo, string objeto, TileMap* mapa)
+{
+	this->sheetParado = sheetParado;
+	this->sheetAtacando = sheetAtacando;
+	this->sheetMorrendo = sheetMorrendo;
+
+	// Guarda ponteiro para mapa
+	this->mapa = mapa;
+
+	//	Guardar o ponteiro do objeto
+	this->objeto = mapa->getCamadaDeObjetos("objetos")->getObjeto(objeto);
+
+	//	Setar valores iniciais
+	inicio.x = this->objeto->getX();
+	inicio.y = this->objeto->getY();
+	
+	atualizarSprite(sheetParado);
+}
+
+void Personagem::atualizar()
+{
+	spr.avancarAnimacao();
+}
+
+void Personagem::atualizarSprite(string sheet)
 {
 	//	setar spritesheet
 	spr.setSpriteSheet(sheet);
@@ -21,36 +45,24 @@ void Personagem::inicializar(string sheet, ObjetoTileMap* objeto)
 	spr.setAncora(0.1, 0.9);
 
 	//	set vel anim (4 frames por segundo)
-	spr.setVelocidadeAnimacao(5);
-	
-	//	Guardar o ponteiro do objeto
-	this->objeto = objeto;
+	spr.setVelocidadeAnimacao(10);
 
 	//	Setar sprite para o objeto
 		//	ao fazer isso, o sprite passa a ser desenhado automaticamente junto com o mapa, na posicao central do objeto, 
 		//	entao não precisamos chamar spr.desenhar(x, y)
-	objeto->setSprite(&spr);
+	this->objeto->setSprite(&spr);
 
-	//	Setar valores iniciais
-	inicio.x = objeto->getX();
-	inicio.y = objeto->getY();
-	destino.x = 0;
-	destino.y = 0;
-	//interpolador = 0.0f;
-}
-
-void Personagem::atualizar()
-{
 	atualizarAnimacao();
-	//atualizarMovimento();
 }
 
 void Personagem::atacar()
 {
+	atualizaSprite(sheetAtacando);
 }
 
 void Personagem::morrer()
 {
+	atualizaSprite(sheetMorrendo);
 }
 
 float Personagem::getX()
@@ -69,11 +81,78 @@ void Personagem::atualizaSprite(string sheet)
 	objeto->setSprite(&spr);
 }
 
+void Personagem::parar()
+{
+	atualizaSprite(sheetParado);
+}
+
 void Personagem::atualizarAnimacao()
 {
 	//	Avançar anim
 	spr.avancarAnimacao();
 }
+
+int Personagem::getAtaque()
+{
+	return forca;
+}
+
+int Personagem::getDefesa()
+{
+	return defesa;
+}
+
+int Personagem::getVida()
+{
+	return vida;
+}
+
+void Personagem::ganhaVida(int qtd)
+{
+	vida += qtd;
+	painelVida.defineValor(vida);
+}
+
+void Personagem::perdeVida(int qtd)
+{
+	vida -= qtd;
+	if (vida < 0) {
+		vida = 0;
+	}
+	painelVida.defineValor(vida);
+}
+
+void Personagem::ganhaDefesa(int qtd)
+{
+	defesa += qtd;
+	painelDefesa.defineValor(defesa);
+}
+
+void Personagem::perdeDefesa(int qtd)
+{
+	defesa -= qtd;
+	if (defesa < 0) {
+		defesa = 0;
+	}
+	painelDefesa.defineValor(defesa);
+}
+
+void Personagem::ganhaForca(int qtd)
+{
+	forca += qtd;
+	painelAtaque.defineValor(forca);
+}
+
+void Personagem::perdeForca(int qtd)
+{
+	forca -= qtd;
+	if (forca < 0) {
+		forca = 0;
+	}
+
+	painelAtaque.defineValor(forca);
+}
+
 
 void Personagem::atualizarMovimento()
 {

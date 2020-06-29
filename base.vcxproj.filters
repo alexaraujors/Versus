@@ -43,6 +43,15 @@
     <ClCompile Include="Salvamento.cpp">
       <Filter>Jogador</Filter>
     </ClCompile>
+    <ClCompile Include="Painel.cpp">
+      <Filter>Painel</Filter>
+    </ClCompile>
+    <ClCompile Include="SistemaLogin.cpp">
+      <Filter>Login</Filter>
+    </ClCompile>
+    <ClCompile Include="InputTexto.cpp">
+      <Filter>Login</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inventario.h">
@@ -83,6 +92,18 @@
     </ClInclude>
     <ClInclude Include="Salvamento.h">
       <Filter>Jogador</Filter>
+    </ClInclude>
+    <ClInclude Include="Painel.h">
+      <Filter>Painel</Filter>
+    </ClInclude>
+    <ClInclude Include="SistemaLogin.h">
+      <Filter>Login</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuario.h">
+      <Filter>Login</Filter>
+    </ClInclude>
+    <ClInclude Include="InputTexto.h">
+      <Filter>Login</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +151,12 @@
     </Filter>
     <Filter Include="Jogador">
       <UniqueIdentifier>{2e72f0b9-924d-4013-b170-32862f323a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Painel">
+      <UniqueIdentifier>{b2eecc53-ad02-4a88-b9d2-697abf747598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Login">
+      <UniqueIdentifier>{e9b4c10a-2a6c-4d9e-af81-0d99cd9786e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

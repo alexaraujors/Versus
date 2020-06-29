@@ -101,7 +101,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Guerreiro.cpp" />
+    <ClCompile Include="InputTexto.cpp" />
     <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="Painel.cpp" />
     <ClCompile Include="Pocao.cpp" />
     <ClCompile Include="Heroi.cpp" />
     <ClCompile Include="HighScores.cpp" />
@@ -114,10 +116,13 @@
     <ClCompile Include="PocaoVida.cpp" />
     <ClCompile Include="Recorde.cpp" />
     <ClCompile Include="Salvamento.cpp" />
+    <ClCompile Include="SistemaLogin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Guerreiro.h" />
+    <ClInclude Include="InputTexto.h" />
     <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Painel.h" />
     <ClInclude Include="Pocao.h" />
     <ClInclude Include="Heroi.h" />
     <ClInclude Include="HighScores.h" />
@@ -129,6 +134,8 @@
     <ClInclude Include="PocaoVida.h" />
     <ClInclude Include="Recorde.h" />
     <ClInclude Include="Salvamento.h" />
+    <ClInclude Include="SistemaLogin.h" />
+    <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\assets\background\Arena Tileset.png" />

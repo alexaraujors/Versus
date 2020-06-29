@@ -1,12 +1,32 @@
 #include "Guerreiro.h"
 
+Guerreiro::Guerreiro()
+{
+	vida = 100;
+	forca = 50;
+	defesa = 30;
+}
+
+Guerreiro::~Guerreiro()
+{
+}
+
 void Guerreiro::atacar()
 {
-	inicializar("witcher_a", objeto);
+	atualizarSprite(sheetAtacando);
+}
 
-	spr.setAnimacao(0, false);
+void Guerreiro::inicializarPaineis()
+{
+	vida = 100;
+	defesa = 30;
+	forca = 50;
 
-	if (spr.terminouAnimacao()) {
-		inicializar("witcher_p", objeto);
-	};
+	painelVida.inicializa("w_v", VERMELHO, mapa);
+	painelDefesa.inicializa("w_d", AZUL, mapa);
+	painelAtaque.inicializa("w_a", AMARELO, mapa);
+
+	painelVida.defineValor(vida);
+	painelDefesa.defineValor(defesa);
+	painelAtaque.defineValor(forca);
 }
