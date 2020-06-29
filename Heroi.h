@@ -21,6 +21,7 @@ public:
     void inicializarPaineis();
 
     void ganhaOuro(int qtd);
+    int getOuro();
     void passaFase();
 
 };

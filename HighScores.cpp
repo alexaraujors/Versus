@@ -1,20 +1,25 @@
 #include "HighScores.h"
 
-void HighScores::adicionarRecorde(string nome, int pontuacao)
-{
-	Recorde* rec = new Recorde(nome, pontuacao);
-	this->recordes.push_back(*rec);
-	this->salvarRecordes();
-}
-
 bool comparator(Recorde r1, Recorde r2)
 {
 	return r1.getPontuacao() > r2.getPontuacao();
 }
 
+void HighScores::adicionarRecorde(string nome, int pontuacao)
+{
+	Recorde* rec = new Recorde(nome, pontuacao);
+	this->recordes.push_back(*rec);
+	this->recordes.sort(comparator);
+
+	if (this->recordes.size() > 5) {
+		this->recordes.pop_back();
+	}
+	this->salvarRecordes();
+}
+
+
  bool HighScores::carregarRecordes()
 {
-
 	arqRecordes.open("assets/recordes.txt", std::ios::out | std::ios::in);
 	if (!arqRecordes.is_open()) {
 		return false;
@@ -26,18 +31,22 @@ bool comparator(Recorde r1, Recorde r2)
 			int pontuacao;
 
 			// lê linha com nome e linha com pontuação
+			nome = "";
+			pontuacao = 0;
+
 			arqRecordes >> nome;
 			arqRecordes >> pontuacao;
 
-			// cria recorde com nome e pontuação lidos
-			Recorde* recorde = new Recorde(nome, pontuacao);
-
-			// adiciona recorde no fim da lista
-			recordes.push_back(*recorde);		
+			if (nome != "") 
+			{
+				// cria recorde com nome e pontuação lidos
+				Recorde* recorde = new Recorde(nome, pontuacao);
+				// adiciona recorde no fim da lista
+				recordes.push_back(*recorde);		
+			}
 		}
 		// ordena a lista comparando as pontuações
 		recordes.sort(comparator);
-
 	}
 	arqRecordes.close();
 	return true;
@@ -51,7 +60,11 @@ bool HighScores::salvarRecordes()
 	}
 	else {
 		arqRecordes.clear();
-		//arqRecordes << recorde.getTempo();
+		for each (Recorde rec in recordes)
+		{
+			arqRecordes << rec.getNome() << endl;
+			arqRecordes << rec.getPontuacao() << endl;
+		}
 	}
 	arqRecordes.close();
 	return true;

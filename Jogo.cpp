@@ -86,7 +86,8 @@ void Jogo::executar()
 	while (!gEventos.sair) {
 		uniIniciarFrame();
 
-		switch (pilhaTelas.top()) {
+		switch (pilhaTelas.top()) 
+		{
 		case tJogo: telaJogo();
 			break;
 		case tCreditos: telaCreditos();
@@ -127,10 +128,6 @@ void Jogo::executar()
 
 		// Desenhar o tilemap (player eh desenhado junto)
 		mapa.desenhar();
-
-		// Desenhar instruções, recorde e cronometro
-		//desenharInstrucoes();
-		//desenharCronometro();
 
 		uniTerminarFrame();
 	}
@@ -186,11 +183,13 @@ void Jogo::verificaFinalBatalha()
 
 		if (heroi.getVida() == 0) {
 			heroi.morrer();
+			highScores.adicionarRecorde(login.getJogador().getNome(), heroi.getOuro());
 			inicioMorte = clock();
 		}
 		if (guerreiro.getVida() == 0) {
 			guerreiro.morrer();
 			inicioMorte = clock();
+			heroi.ganhaOuro(150);
 		}
 	}
 }
@@ -199,7 +198,6 @@ void Jogo::verificaMorrendo()
 {
 	if (this->inicioMorte > 0.0 && ((clock() - this->inicioMorte) / CLOCKS_PER_SEC >= 2)) {
 		setFase(++fase);
-		heroi.ganhaOuro(250);
 		inicioMorte = 0.0;
 	}
 }
@@ -309,8 +307,6 @@ void Jogo::telaPausa()
 	configurarBotoes(&botaoVoltar, gJanela.getLargura() * 0.5, gJanela.getAltura() * 0.5, "Voltar ao jogo", "botaoPequeno");
 	configurarBotoes(&botaoSair, botaoVoltar.getPos().x, botaoVoltar.getPos().y + 60, "Sair do jogo", "botaoPequeno");
 
-	if (!botaoVoltar.estaComMouseEmCima() && !botaoSair.estaComMouseEmCima()) bMovePodeTocar = true;
-
 	botaoLoop(&botaoVoltar, true);
 	botaoLoop(&botaoSair, true);
 
@@ -387,6 +383,6 @@ void Jogo::telaRanking()
 	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
 
 	corpo.setString(highScores.getRecordes());
-	corpo.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4+100);
+	corpo.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4 + 100);
 }
 

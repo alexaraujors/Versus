@@ -36,6 +36,11 @@ void Heroi::ganhaOuro(int qtd)
 	painelOuro.defineValor(ouro);
 }
 
+int Heroi::getOuro()
+{
+	return this->ouro;
+}
+
 void Heroi::passaFase()
 {
 	fase++;
