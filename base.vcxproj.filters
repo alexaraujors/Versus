@@ -158,6 +158,9 @@
     <Filter Include="Login">
       <UniqueIdentifier>{e9b4c10a-2a6c-4d9e-af81-0d99cd9786e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bin\assets\fontes">
+      <UniqueIdentifier>{70b60208-3f78-44f8-bcc9-cbb6b991ff27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\assets\background\Arena Tileset.png">
@@ -327,6 +330,9 @@
     <Text Include="bin\assets\recordes.txt">
       <Filter>bin\assets</Filter>
     </Text>
+    <Text Include="bin\assets\login.txt">
+      <Filter>bin\assets</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\assets\mapa\png\bed_room.psd">
@@ -439,15 +445,6 @@
     <None Include="bin\libwebp-4.dll">
       <Filter>bin</Filter>
     </None>
-    <None Include="bin\Pandemia-debug.exe">
-      <Filter>bin</Filter>
-    </None>
-    <None Include="bin\Pandemia-debug.ilk">
-      <Filter>bin</Filter>
-    </None>
-    <None Include="bin\Pandemia-debug.pdb">
-      <Filter>bin</Filter>
-    </None>
     <None Include="bin\SDL2.dll">
       <Filter>bin</Filter>
     </None>
@@ -485,6 +482,9 @@
     </Font>
     <Font Include="bin\fonte_padrao.ttf">
       <Filter>bin</Filter>
+    </Font>
+    <Font Include="bin\assets\fontes\arial.ttf">
+      <Filter>bin\assets\fontes</Filter>
     </Font>
   </ItemGroup>
 </Project>

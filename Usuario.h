@@ -6,6 +6,6 @@ public:
 	Usuario() {}
 	~Usuario() {}
 
-	std::string nome = "", senha = "";
+	string nome = "", senha = "";
 	int pontos = 0;
 };

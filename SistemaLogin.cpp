@@ -18,12 +18,12 @@ bool SistemaLogin::inicializar() {
 	}
 	else {
 		while (!arq.eof())	{ //aloca um novo usuario, lê o nome e a senha e insere na lista
-			uUsuario = new Usuario;
+			uJogador = new Jogador();
 			arq >> sTokken;
-			uUsuario->nome = sTokken;
+			uJogador->setNome(sTokken);
 			arq >> sTokken;
-			uUsuario->senha = sTokken;
-			listaUsuario.push_back(*uUsuario);
+			uJogador->setSenha(sTokken);
+			listaJogador.push_back(*uJogador);
 		}
 	}
 	arq.close();
@@ -38,7 +38,7 @@ bool SistemaLogin::cadastrar(string user, string senha) {
 		return false;
 	}
 	else 
-	{		//salvar usuario e salvar senha
+	{	//salvar usuario e salvar senha
 		arq << endl << user;
 		arq << endl << senha;
 	}
@@ -48,7 +48,7 @@ bool SistemaLogin::cadastrar(string user, string senha) {
 
 bool SistemaLogin::iniciarCadastro(){
 	bool usuarioRepetido = false;
-	cadastroUsuario = new Usuario;
+	cadastroJogador = new Jogador();
 
 	gDebug.depurar("bUsuario", bUsuario);
 	gDebug.depurar("usuario repetido", usuarioRepetido);
@@ -79,19 +79,19 @@ bool SistemaLogin::iniciarCadastro(){
 				//Usuario ultimoUsuario = listaUsuario.back();
 				//while (listaUsuario.front().nome != ultimoUsuario.nome){
 
-				int i = listaUsuario.size();
+				int i = listaJogador.size();
 				while (i >= 0) {
-					gDebug.depurar("primeiro da lista: ", listaUsuario.front().nome);
-					gDebug.depurar("tamanho lista: ", listaUsuario.size());
-					if (listaUsuario.front().nome == user) {
+					gDebug.depurar("primeiro da lista: ", listaJogador.front().getNome());
+					gDebug.depurar("tamanho lista: ", listaJogador.size());
+					if (listaJogador.front().getNome()==user) {
 						usuarioRepetido = true;
 						textoGuia.setString("Nome indisponível. Informe o seu nome de Usuario:");
 						gDebug.erro("Usuario ja existente!");
 						break;
 					}
 					else {
-						listaUsuario.push_back(listaUsuario.front());
-						listaUsuario.pop_front();
+						listaJogador.push_back(listaJogador.front());
+						listaJogador.pop_front();
 					}
 					i--;
 				}
@@ -100,7 +100,7 @@ bool SistemaLogin::iniciarCadastro(){
 					bUsuario = true;
 					inputInicio = false;
 
-					cadastroUsuario->nome = user;
+					cadastroJogador->setNome(user);
 				}
 			}
 			else input.inicializar();
@@ -156,11 +156,11 @@ bool SistemaLogin::iniciarCadastro(){
 				textoGuia.setString("Senha salva:");
 				textoGuia.desenhar(gJanela.getLargura() / 2, (gJanela.getAltura() / 2) - 40);
 
-				cadastroUsuario->senha = sn1;
+				cadastroJogador->setSenha(sn1);
 
-				listaUsuario.push_back(*cadastroUsuario);
+				listaJogador.push_back(*cadastroJogador);
 
-				logando = *cadastroUsuario;
+				logando = *cadastroJogador;
 
 				cadastrar(user, sn1);
 				return true;
@@ -187,9 +187,9 @@ bool SistemaLogin::iniciarCadastro(){
 
 void SistemaLogin::finalizar(){
 	//esse método não tá sendo chamado em lugar nenhum
-	listaUsuario.clear();
-	delete uUsuario;
-	delete cadastroUsuario;
+	listaJogador.clear();
+	delete uJogador;
+	delete cadastroJogador;
 }
 
 bool SistemaLogin::iniciarLogin(){
@@ -211,11 +211,11 @@ bool SistemaLogin::iniciarLogin(){
 				test1 = input.getTexto();
 				input.finalizar();
 
-				if (listaUsuario.front().nome == input.getTexto()) {
+				if (listaJogador.front().getNome() == input.getTexto()) {
 					lExiste = true;
 				}
 
-				if (percorrerUsuario(test1, listaUsuario)) {
+				if (percorrerJogador(test1, listaJogador)) {
 					//encontrou usuario
 					lUser = true;
 					lSenha = false;
@@ -237,7 +237,8 @@ bool SistemaLogin::iniciarLogin(){
 		textoGuia.setString("Informe sua senha:");
 		textoGuia.desenhar(gJanela.getLargura() / 2, (gJanela.getAltura() / 2) - 40);
 
-		if (inputInicio == false) {//ativar input
+		if (inputInicio == false) 
+		{//ativar input
 			input.inicializar();
 			inputInicio = true;
 		}
@@ -247,7 +248,7 @@ bool SistemaLogin::iniciarLogin(){
 		if (gTeclado.pressionou[TECLA_ENTER] && input.getTexto() != "") {
 			test2 = input.getTexto();
 			input.finalizar();
-			if (logando.senha == test2) {
+			if (logando.getSenha() == test2) {
 				lSenha = true;
 				logou = true;
 				gGraficos.desenharTexto("Logando", 400, 300, 255, 255, 255, 255);
@@ -264,23 +265,23 @@ bool SistemaLogin::iniciarLogin(){
 	}
 }
 
-bool SistemaLogin::percorrerUsuario(std::string& alvo, list<Usuario>& fLista) {
-	int i = listaUsuario.size();
+bool SistemaLogin::percorrerJogador(std::string& alvo, list<Jogador>& fLista) {
+	int i = listaJogador.size();
 	while (i >= 0) {
-		gDebug.depurar("primeiro da lista: ", listaUsuario.front().nome);
-		gDebug.depurar("tamanho lista: ", listaUsuario.size());
-		if (listaUsuario.front().nome == alvo) {
+		gDebug.depurar("primeiro da lista: ", listaJogador.front().getNome());
+		gDebug.depurar("tamanho lista: ", listaJogador.size());
+		if (listaJogador.front().getNome() == alvo) {
 			lExiste = true;
 			logando = fLista.front();
 			return true;
 		}
 		else {
-			listaUsuario.push_back(listaUsuario.front());
-			listaUsuario.pop_front();
+			listaJogador.push_back(listaJogador.front());
+			listaJogador.pop_front();
 		}
 		i--;
 	}
-	gDebug.erro("Usuário não cadastrado.");
+	gDebug.erro("Jogador não cadastrado.");
 	lExiste = false;
 	return false;
 }

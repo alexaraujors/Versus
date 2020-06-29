@@ -192,11 +192,13 @@
     <Image Include="bin\assets\tilesets\witcher_288x160.png" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="bin\assets\login.txt" />
     <Text Include="bin\assets\mapa\campo_config.txt" />
     <Text Include="bin\assets\mapa\png\campo_config.txt" />
     <Text Include="bin\assets\recordes.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="bin\assets\fontes\arial.ttf" />
     <Font Include="bin\assets\texto\F25_Bank_Printer.ttf" />
     <Font Include="bin\fonte_padrao.ttf" />
   </ItemGroup>
@@ -239,9 +241,6 @@
     <None Include="bin\libvorbis-0.dll" />
     <None Include="bin\libvorbisfile-3.dll" />
     <None Include="bin\libwebp-4.dll" />
-    <None Include="bin\Pandemia-debug.exe" />
-    <None Include="bin\Pandemia-debug.ilk" />
-    <None Include="bin\Pandemia-debug.pdb" />
     <None Include="bin\SDL2.dll" />
     <None Include="bin\SDL2_image.dll" />
     <None Include="bin\SDL2_mixer.dll" />

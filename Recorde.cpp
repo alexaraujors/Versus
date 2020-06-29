@@ -1,13 +1,30 @@
 #include "Recorde.h"
 #include <string>
 
-
-float Recorde::getTempo()
+Recorde::Recorde()
 {
-	return tempo;
 }
 
-void Recorde::setTempo(float tempo)
+Recorde::~Recorde()
 {
-	this->tempo = tempo;
+}
+
+string Recorde::getNome()
+{
+	return nome;
+}
+
+void Recorde::setNome(string nome)
+{
+	this->nome = nome;
+}
+
+int Recorde::getPontuacao()
+{
+	return pontuacao;
+}
+
+void Recorde::setPontuacao(int pontuacao)
+{
+	this->pontuacao = pontuacao;
 }

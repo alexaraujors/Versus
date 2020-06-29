@@ -4,7 +4,8 @@
 #include "InputTexto.h"
 #include "libUnicornio.h"
 #include <list>
-#include "Usuario.h"
+#include "Jogador.h"
+//#include "Usuario.h"
 
 class SistemaLogin
 {
@@ -21,10 +22,10 @@ public:
 	bool iniciarCadastro();
 	bool iniciarLogin();
 
-	bool percorrerUsuario(string& alvo, list<Usuario>& fLista);
+	bool percorrerJogador(string& alvo, list<Jogador>& fLista);
 
 	bool getLoginAprovado() { return logou; }
-	Usuario getUsuario() { return logando; }
+	Jogador getJogador() { return logando; }
 
 private:
 	fstream login;
@@ -42,12 +43,12 @@ private:
 
 	// Input login
 	bool lUser = false, lSenha = true, lExiste = false;
-	Usuario logando;
+	Jogador logando;
 	string test1, test2;
 	bool logou = false;
 
 	// Controle de lista
-	list<Usuario> listaUsuario;
-	Usuario *uUsuario, fimLista, aux, *cadastroUsuario;
+	list<Jogador> listaJogador;
+	Jogador* uJogador, fimLista, aux, *cadastroJogador;
 
 };

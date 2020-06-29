@@ -1,13 +1,13 @@
 #include "HighScores.h"
-/*
-bool HighScores::bateuRecorde(float tempo)
+
+bool HighScores::bateuRecorde(string nome, int valor)
 {
 	return tempo <= this->recorde.getTempo();
 }
 
 void HighScores::adicionarRecorde(Recorde rec)
 {
-	this->recorde = rec;
+	this->recordes[0] = &rec;
 	this->salvarRecordes();
 }
 
@@ -19,10 +19,13 @@ bool HighScores::carregarRecordes()
 	}
 	else {
 		while (!arqRecordes.eof()) { //lê todos os recordes
-			Recorde * recorde = new Recorde();
+			Recorde recorde = new Recorde();
 			float valor;
+			string nome;
+			arqRecordes >> nome;
 			arqRecordes >> valor;
-			recorde->setTempo(valor);
+			recorde->setPontuacao(valor);
+			recorde->setNome(nome);
 			this->recorde = *recorde;
 		}
 	}
@@ -44,6 +47,11 @@ bool HighScores::salvarRecordes()
 	return true;
 }
 
+Recorde HighScores::getRecorde(int posicao)
+{
+	return recordes[posicao];
+}
+
 string HighScores::getRecorde()
 {
 	float t = this->recorde.getTempo();
@@ -51,4 +59,3 @@ string HighScores::getRecorde()
 	int segundos = int(t) % 60;
 	return std::to_string(minutos) + ":" + std::to_string(segundos);
 }
-*/

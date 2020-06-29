@@ -5,10 +5,16 @@ using namespace std;
 class Recorde
 {
 private:
-    float tempo;
+    string nome;
+    int pontuacao;
 
 public:
-    float getTempo();
-    void setTempo(float tempo);
+    Recorde();
+    ~Recorde();
+
+    string getNome();
+    void setNome(string nome);
+    int getPontuacao();
+    void setPontuacao(int pontuacao);
 };
 
