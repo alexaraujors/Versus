@@ -2,6 +2,7 @@
 #include "Personagem.h"
 #include "Inventario.h"
 #include "Painel.h"
+#include "Salvamento.h"
 
 class Heroi : 
     public Personagem
@@ -10,8 +11,7 @@ protected:
     int ouro = 0;
     int fase = 0;
 
-   Painel painelOuro;
-
+    Painel painelOuro;
     Inventario * inventario;
 
 public:
@@ -24,5 +24,6 @@ public:
     int getOuro();
     void passaFase();
 
+    void carregaSalvamento(Salvamento salvamento);
 };
 

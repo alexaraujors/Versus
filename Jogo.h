@@ -7,7 +7,7 @@
 #include "HighScores.h"
 //#include "Bonus.h"
 
-enum Tela { tMenuPrincipal, tJogo, tCreditos, tPausa, tCadastrar, tLogin, tInicial, tRanking };
+enum Tela { tMenuPrincipal, tJogo, tCreditos, tPausa, tCadastrar, tLogin, tInicial, tRanking, tSalvamentos };
 
 class Jogo
 {
@@ -28,8 +28,8 @@ private:
 	void atualizarGuerreiro();
 	void desenharInstrucoes();
 
-	void verificaFinalBatalha();
-	void verificaMorrendo();
+	void verificaAnimacaoFinalBatalha();
+	void verificaAnimacaoFinalMorte();
 
 	void setFase(int fase);
 
@@ -42,9 +42,10 @@ private:
 
 	// Telas
 	stack<Tela> pilhaTelas;
-	BotaoSprite botaoJogar, botaoSair, botaoCreditos, botaoVoltar, botaoLogar, botaoCadastrar, botaoRanking;
+	BotaoSprite botaoJogar, botaoSair, botaoCreditos, 
+		botaoVoltar, botaoLogar, botaoCadastrar, botaoRanking, botaoNovo,
+		botaoSalvamento1, botaoSalvamento2, botaoSalvamento3;
 	Texto cabecalho, corpo;
-	bool bCancelaPodeTocar, bMovePodeTocar, bSelecionaPodeTocar;
 	Cor branco;
 	HighScores highScores;
 
@@ -59,6 +60,7 @@ private:
 	void telaCadastrar();
 	void telaLogin();
 	void telaRanking();
+	void telaSalvamentos();
 
 	// Resto
 	TileMap mapa;

@@ -1,6 +1,7 @@
 #pragma once
 #include <fstream>
-#include <string>
+#include <stdio.h>
+#include <string.h>
 #include "InputTexto.h"
 #include "libUnicornio.h"
 #include <list>

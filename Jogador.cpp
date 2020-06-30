@@ -1,30 +1,31 @@
 #include "Jogador.h"
 #include "Salvamento.h"
 
-Salvamento* Jogador::getSalvamentos()
+void Jogador::incluiSalvamento(Salvamento salvamento)
 {
-	return nullptr;
+	this->salvamentos.push_back(salvamento);
+	if (this->salvamentos.size() > 3) {
+		this->salvamentos.emplace_front();
+	}
 }
 
-void Jogador::incluiSalvamento(Salvamento* salvamento)
-{
-	salvamentos[1] = salvamentos[2];
-	salvamentos[2] = salvamentos[3];
-	salvamentos[3] = salvamento;
-}
-
-Salvamento* Jogador::buscaSalvamento(int posicao)
-{
-	return nullptr;
+Salvamento Jogador::buscaSalvamento(int posicao)
+{	
+	int i = 0;
+	for each (Salvamento salv in salvamentos)
+	{
+		++i;
+		if (i == posicao) {
+			return salv;
+		}
+	}
 }
 
 Jogador::Jogador()
-{
-}
+{}
 
 Jogador::~Jogador()
-{
-}
+{}
 
 string Jogador::getNome()
 {
@@ -48,7 +49,7 @@ void Jogador::setSenha(string senha)
 
 int Jogador::getRecorde()
 {
-	return recorde;
+	return this->recorde;
 }
 
 void Jogador::setRecorde(int recorde)
@@ -58,7 +59,7 @@ void Jogador::setRecorde(int recorde)
 
 Heroi* Jogador::getHeroi()
 {
-	return heroi;
+	return this->heroi;
 }
 
 void Jogador::setHeroi(Heroi* heroi)

@@ -61,9 +61,9 @@ void Jogo::inicializar()
 
 	cabecalho.setCor(branco);
 	cabecalho.setFonte("arial");
+
 	corpo.setCor(branco);
 	corpo.setFonte("arial");
-
 
 	// Inicializa a fase
 	fase = 1;
@@ -83,7 +83,8 @@ void Jogo::finalizar()
 
 void Jogo::executar() 
 {
-	while (!gEventos.sair) {
+	while (!gEventos.sair) 
+	{
 		uniIniciarFrame();
 
 		switch (pilhaTelas.top()) 
@@ -104,8 +105,9 @@ void Jogo::executar()
 			break;
 		case tRanking: telaRanking();
 			break;
+		case tSalvamentos: telaSalvamentos();
+			break;
 		}
-
 		uniTerminarFrame();
 	}
 
@@ -118,8 +120,8 @@ void Jogo::executar()
 		atualizarInput();
 
 		// Verifica final da batalha
-		verificaFinalBatalha();
-		verificaMorrendo();
+		verificaAnimacaoFinalBatalha();
+		verificaAnimacaoFinalMorte();
 		
 		// Atualizar heroi e as guerreiros
 		heroi.atualizar();
@@ -140,7 +142,8 @@ void Jogo::carregaRecordes()
 
 void Jogo::atualizarInput()
 {
-	if (gTeclado.segurando[TECLA_A]) {
+	if (gTeclado.segurando[TECLA_A]) 
+	{
 		heroi.atacar();
 		guerreiro.atacar();
 		inicioBatalha = clock();
@@ -159,7 +162,7 @@ void Jogo::desenharInstrucoes()
 	gGraficos.desenharTexto(txt, 25, 25, 255, 255, 255, 255, 0, 0);
 }
 
-void Jogo::verificaFinalBatalha()
+void Jogo::verificaAnimacaoFinalBatalha()
 {
 	if (this->inicioBatalha > 0.0 && ((clock() - this->inicioBatalha) / CLOCKS_PER_SEC >= 5))
 	{
@@ -177,16 +180,19 @@ void Jogo::verificaFinalBatalha()
 		heroi.perdeVida(danoHeroi);
 		guerreiro.perdeVida(danoGuerreiro);
 
-		if (danoHeroi < danoGuerreiro) {
+		if (danoHeroi < danoGuerreiro) 
+		{
 			heroi.ganhaOuro(100);
 		}
 
-		if (heroi.getVida() == 0) {
+		if (heroi.getVida() == 0) 
+		{
 			heroi.morrer();
 			highScores.adicionarRecorde(login.getJogador().getNome(), heroi.getOuro());
 			inicioMorte = clock();
 		}
-		if (guerreiro.getVida() == 0) {
+		if (guerreiro.getVida() == 0) 
+		{
 			guerreiro.morrer();
 			inicioMorte = clock();
 			heroi.ganhaOuro(150);
@@ -194,9 +200,10 @@ void Jogo::verificaFinalBatalha()
 	}
 }
 
-void Jogo::verificaMorrendo()
+void Jogo::verificaAnimacaoFinalMorte()
 {
-	if (this->inicioMorte > 0.0 && ((clock() - this->inicioMorte) / CLOCKS_PER_SEC >= 2)) {
+	if (this->inicioMorte > 0.0 && ((clock() - this->inicioMorte) / CLOCKS_PER_SEC >= 2)) 
+	{
 		setFase(++fase);
 		inicioMorte = 0.0;
 	}
@@ -204,7 +211,8 @@ void Jogo::verificaMorrendo()
 
 void Jogo::setFase(int fase)
 {
-	switch (fase) {
+	switch (fase) 
+	{
 	case  1:
 		guerreiro = bruxo;
 		break;
@@ -226,14 +234,16 @@ void Jogo::inicializarGuerreiros()
 	samurai.inicializar("samurai_p", "samurai_a","morte", "warrior", &mapa);
 }
 
-void Jogo::configurarBotoes(BotaoSprite* botao, float x, float y, string nome, string sprite) {
+void Jogo::configurarBotoes(BotaoSprite* botao, float x, float y, string nome, string sprite) 
+{
 	botao->setPos(x, y);
 	botao->setSpriteSheet(sprite);
 	cabecalho.setString(nome);
 	cabecalho.desenhar(x, y);
 }
 
-void Jogo::botaoLoop(BotaoSprite* botao, bool botaoDeVoltar) {
+void Jogo::botaoLoop(BotaoSprite* botao, bool botaoDeVoltar) 
+{
 	botao->atualizar();
 	botao->desenhar();
 }
@@ -241,16 +251,17 @@ void Jogo::botaoLoop(BotaoSprite* botao, bool botaoDeVoltar) {
 void Jogo::telaMenuPrincipal() 
 {
 	configurarBotoes(&botaoJogar, gJanela.getLargura() / 2, gJanela.getAltura() / 2, "Jogar", "botaoPequeno");
-	configurarBotoes(&botaoCreditos, botaoJogar.getPos().x, botaoJogar.getPos().y + 60, "Créditos", "botaoPequeno");
+	configurarBotoes(&botaoRanking, botaoJogar.getPos().x, botaoJogar.getPos().y + 60, "Ranking", "botaoPequeno");	
+	configurarBotoes(&botaoCreditos, botaoRanking.getPos().x, botaoRanking.getPos().y + 60, "Créditos", "botaoPequeno");
 	configurarBotoes(&botaoSair, botaoCreditos.getPos().x, botaoCreditos.getPos().y + 60, "Sair", "botaoPequeno");
 
-	if (!botaoJogar.estaComMouseEmCima() && !botaoCreditos.estaComMouseEmCima() && !botaoSair.estaComMouseEmCima()) bMovePodeTocar = true;
-
 	botaoLoop(&botaoJogar, false);
+	botaoLoop(&botaoRanking, false);
 	botaoLoop(&botaoCreditos, false);
 	botaoLoop(&botaoSair, true);
 
-	if (botaoJogar.estaClicado()) pilhaTelas.push(tJogo);
+	if (botaoJogar.estaClicado()) pilhaTelas.push(tSalvamentos);
+	if (botaoRanking.estaClicado())	pilhaTelas.push(tRanking);
 	if (botaoCreditos.estaClicado()) pilhaTelas.push(tCreditos);
 	if (botaoSair.estaClicado()) exit(0);
 
@@ -258,19 +269,18 @@ void Jogo::telaMenuPrincipal()
 	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
 }
 
-void Jogo::telaJogo() {
+void Jogo::telaJogo() 
+{
 
 	if (gTeclado.pressionou[TECLA_ESC]) pilhaTelas.push(tPausa);
-
-	//uniIniciarFrame();
 
 	// Verifica as teclas do teclado e caso forem pressionadas
 	// seta o destino do player
 	atualizarInput();
 
 	// Verifica final da batalha
-	verificaFinalBatalha();
-	verificaMorrendo();
+	verificaAnimacaoFinalBatalha();
+	verificaAnimacaoFinalMorte();
 
 	// Atualizar heroi e as guerreiros
 	heroi.atualizar();
@@ -279,8 +289,6 @@ void Jogo::telaJogo() {
 
 	// Desenhar o tilemap (player eh desenhado junto)
 	mapa.desenhar();
-
-	//uniTerminarFrame();
 }
 
 void Jogo::telaCreditos() 
@@ -295,8 +303,8 @@ void Jogo::telaCreditos()
 	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
 
 	corpo.setAlinhamento(TEXTO_CENTRALIZADO);
+	corpo.adicionarString("Design e desenvolvimento\n\n");
 	corpo.setString("Patricia dos Santos Silva\n");
-	corpo.adicionarString("Design e desenvolvimento\n");
 	corpo.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4 + 100);
 }
 
@@ -384,5 +392,54 @@ void Jogo::telaRanking()
 
 	corpo.setString(highScores.getRecordes());
 	corpo.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4 + 100);
+}
+
+void Jogo::telaSalvamentos()
+{
+	configurarBotoes(&botaoVoltar, gJanela.getLargura() * 0.15, gJanela.getAltura() * 0.15, "< Voltar  ", "botaoPequeno");
+	
+	configurarBotoes(&botaoSalvamento1, gJanela.getLargura() / 2, gJanela.getAltura() / 2, 
+		this->login.getJogador().buscaSalvamento(1).getDataHora(), "botaoPequeno");
+	configurarBotoes(&botaoSalvamento2, botaoSalvamento1.getPos().x, botaoSalvamento1.getPos().y + 60, 
+		this->login.getJogador().buscaSalvamento(2).getDataHora(), "botaoPequeno");
+	configurarBotoes(&botaoSalvamento3, botaoSalvamento2.getPos().x, botaoSalvamento2.getPos().y + 60, 
+		this->login.getJogador().buscaSalvamento(3).getDataHora(), "botaoPequeno");
+	configurarBotoes(&botaoNovo, botaoSalvamento3.getPos().x, botaoSalvamento3.getPos().y + 60, "Novo jogo", "botaoPequeno");
+	
+	botaoLoop(&botaoVoltar, true);
+	botaoLoop(&botaoSalvamento1, false);
+	botaoLoop(&botaoSalvamento2, false);
+	botaoLoop(&botaoSalvamento3, false);	
+	botaoLoop(&botaoNovo, false);
+
+	if (gTeclado.pressionou[TECLA_ESC] || botaoVoltar.estaClicado()) pilhaTelas.pop();
+
+	Salvamento salvamentoSelecionado;
+
+	if (botaoSalvamento1.estaClicado()) 
+	{
+		pilhaTelas.push(tJogo);
+		salvamentoSelecionado = this->login.getJogador().buscaSalvamento(1);
+		this->heroi.carregaSalvamento(salvamentoSelecionado);
+	}
+	if (botaoSalvamento2.estaClicado())
+	{
+		pilhaTelas.push(tJogo);
+		salvamentoSelecionado = this->login.getJogador().buscaSalvamento(2);
+		this->heroi.carregaSalvamento(salvamentoSelecionado);
+	}
+	if (botaoSalvamento3.estaClicado())
+	{
+		pilhaTelas.push(tJogo);
+		salvamentoSelecionado = this->login.getJogador().buscaSalvamento(3);
+		this->heroi.carregaSalvamento(salvamentoSelecionado);
+	}
+	if (botaoNovo.estaClicado())
+	{
+		pilhaTelas.push(tJogo);
+		this->heroi.carregaSalvamento(salvamentoSelecionado);
+	}
+	cabecalho.setString("Selecione um salvamento");
+	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
 }
 

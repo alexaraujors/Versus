@@ -1,39 +1,62 @@
 #include "SistemaLogin.h"
 
-bool SistemaLogin::inicializar() {
-
+bool SistemaLogin::inicializar() 
+{
 	textoGuia.setFonte("arial");
 	branco.set(255, 255, 255, 255);
 	textoGuia.setCor(branco);
 
 	//tenho certeza que isso não deveria estar sendo chamado aqui
 	arq.open("assets/login.txt", std::ios::out | std::ios::in);
-	if (!arq.is_open()) {
+	if (!arq.is_open()) 
+	{
 		gDebug.erro("inicializar() não conseguiu abrir o arquivo de login");
 		return false;
 	}
-	else if (arq.eof()) {
+	else if (arq.eof()) 
+	{
 		gDebug.erro("Arquivo vazio de login está vazio");
 		return false;
 	}
-	else {
+	else 
+	{
 		while (!arq.eof())	{ //aloca um novo usuario, lê o nome e a senha e insere na lista
 			uJogador = new Jogador();
-			arq >> sTokken;
-			uJogador->setNome(sTokken);
-			arq >> sTokken;
-			uJogador->setSenha(sTokken);
+			string nome = "", senha = "";
+
+			arq >> nome;
+			uJogador->setNome(nome);
+			arq >> senha;
+			uJogador->setSenha(senha);
+
+			for (int i = 0; i < 3; i++)
+			{
+				string data = "";
+				int vida = 0, forca = 0, defesa = 0, ouro = 0, fase = 0;
+				
+				arq >> data;
+				arq >> vida;
+				arq >> forca;
+				arq >> defesa;
+				arq >> ouro;
+				arq >> fase;
+				Salvamento *salv = new Salvamento(data, vida, forca, defesa, ouro, fase);
+				uJogador->incluiSalvamento(*salv);
+			}
+
 			listaJogador.push_back(*uJogador);
 		}
 	}
 	arq.close();
 }
 
-bool SistemaLogin::cadastrar(string user, string senha) {
+bool SistemaLogin::cadastrar(string user, string senha) 
+{
 	gDebug.erro("passou pelo cadastrar()");
 
 	arq.open("assets/login.txt", std::ios::out | std::ios::in |std::ios::app);
-	if (!arq.is_open()) {
+	if (!arq.is_open()) 
+	{
 		gDebug.erro("cadastrar() não conseguiu abrir o arquivo de login");
 		return false;
 	}
@@ -68,13 +91,12 @@ bool SistemaLogin::iniciarCadastro(){
 		input.atualizar();
 		input.desenhar();
 
-		if (gTeclado.pressionou[TECLA_ENTER] || gTeclado.pressionou[TECLA_ENTER2]) {
+		if (gTeclado.pressionou[TECLA_ENTER] || gTeclado.pressionou[TECLA_ENTER2]) 
+		{
 			user = input.getTexto();
 			input.finalizar();
 
 			if (user != "") {	//verificar lista de usuarios
-
-
 				//Enquanto o cadastro estiver salvando duas vezes cada usurário esse método de cima não funciona
 				//Usuario ultimoUsuario = listaUsuario.back();
 				//while (listaUsuario.front().nome != ultimoUsuario.nome){
@@ -165,19 +187,22 @@ bool SistemaLogin::iniciarCadastro(){
 				cadastrar(user, sn1);
 				return true;
 			}
-			else {
+			else 
+			{
 				textoGuia.setString("Senha incorreta: pressione ENTER para redigita-la");
 				textoGuia.desenhar(gJanela.getLargura() / 2, (gJanela.getAltura() / 2) - 40);
 				gDebug.erro("Senha incorreta");
 
-				if (gTeclado.pressionou[TECLA_ENTER]) {//reiniciar cadastro
+				if (gTeclado.pressionou[TECLA_ENTER]) //reiniciar cadastro
+				{
 					bSenha1 = false;
 				}
 
 				return false;
 			}
 		}
-		else {
+		else 
+		{
 			textoGuia.setString("Erro: variaveis de senha vazias!");
 			textoGuia.desenhar(gJanela.getLargura() / 2, (gJanela.getAltura() / 2) - 40);
 			return false;
@@ -185,16 +210,18 @@ bool SistemaLogin::iniciarCadastro(){
 	}
 }
 
-void SistemaLogin::finalizar(){
+void SistemaLogin::finalizar()
+{
 	//esse método não tá sendo chamado em lugar nenhum
 	listaJogador.clear();
 	delete uJogador;
 	delete cadastroJogador;
 }
 
-bool SistemaLogin::iniciarLogin(){
+bool SistemaLogin::iniciarLogin()
+{
 
-	if (lUser == false) {//verificar usuario
+	if (lUser == false) { // verificar usuario
 		textoGuia.setString("Informe seu nome de usuario:");
 		textoGuia.desenhar(gJanela.getLargura() / 2, (gJanela.getAltura() / 2) - 40);
 
@@ -206,24 +233,27 @@ bool SistemaLogin::iniciarLogin(){
 		input.desenhar();
 
 		if (input.getTexto() != "")
-			if (gTeclado.pressionou[TECLA_ENTER]) {
+			if (gTeclado.pressionou[TECLA_ENTER]) 
+			{
 
 				test1 = input.getTexto();
 				input.finalizar();
 
-				if (listaJogador.front().getNome() == input.getTexto()) {
+				if (listaJogador.front().getNome() == input.getTexto()) 
+				{
 					lExiste = true;
 				}
 
-				if (percorrerJogador(test1, listaJogador)) {
+				if (percorrerJogador(test1, listaJogador)) 
+				{
 					//encontrou usuario
 					lUser = true;
 					lSenha = false;
 					inputInicio = false;
 					//logando = listaUsuario.front();
-
 				}
-				else {
+				else 
+				{
 					//nao encontrou
 					gDebug.erro("Usuário não encontrado");
 					//lUser = false;
@@ -233,7 +263,8 @@ bool SistemaLogin::iniciarLogin(){
 			}
 	}
 
-	if (lSenha == false) {//verificar senha
+	if (lSenha == false) //verificar senha 
+	{
 		textoGuia.setString("Informe sua senha:");
 		textoGuia.desenhar(gJanela.getLargura() / 2, (gJanela.getAltura() / 2) - 40);
 
@@ -245,16 +276,19 @@ bool SistemaLogin::iniciarLogin(){
 		input.atualizar();
 		input.desenhar();
 
-		if (gTeclado.pressionou[TECLA_ENTER] && input.getTexto() != "") {
+		if (gTeclado.pressionou[TECLA_ENTER] && input.getTexto() != "") 
+		{
 			test2 = input.getTexto();
 			input.finalizar();
-			if (logando.getSenha() == test2) {
+			if (logando.getSenha() == test2) 
+			{
 				lSenha = true;
 				logou = true;
 				gGraficos.desenharTexto("Logando", 400, 300, 255, 255, 255, 255);
 				return true;
 			}
-			else {
+			else 
+			{
 				gDebug.erro("Senha incorreta!");
 				lSenha = false;
 				inputInicio = false;
@@ -265,17 +299,21 @@ bool SistemaLogin::iniciarLogin(){
 	}
 }
 
-bool SistemaLogin::percorrerJogador(std::string& alvo, list<Jogador>& fLista) {
+bool SistemaLogin::percorrerJogador(std::string& alvo, list<Jogador>& fLista) 
+{
 	int i = listaJogador.size();
-	while (i >= 0) {
+	while (i >= 0) 
+	{
 		gDebug.depurar("primeiro da lista: ", listaJogador.front().getNome());
 		gDebug.depurar("tamanho lista: ", listaJogador.size());
-		if (listaJogador.front().getNome() == alvo) {
+		if (listaJogador.front().getNome() == alvo) 
+		{
 			lExiste = true;
 			logando = fLista.front();
 			return true;
 		}
-		else {
+		else 
+		{
 			listaJogador.push_back(listaJogador.front());
 			listaJogador.pop_front();
 		}

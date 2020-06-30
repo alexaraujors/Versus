@@ -1,6 +1,8 @@
 #pragma once
 #include<string>
+#include <list>
 #include "Salvamento.h"
+#include "Heroi.h"
 
 using namespace std;
 
@@ -19,15 +21,14 @@ class Jogador
 		Heroi* getHeroi();
 		void setHeroi(Heroi* heroi);
 		
-		Salvamento* getSalvamentos();
-		void incluiSalvamento(Salvamento* salvamento);
-		Salvamento* buscaSalvamento(int posicao);
+		void incluiSalvamento(Salvamento salvamento);
+		Salvamento buscaSalvamento(int posicao);
 
 	private:
 		string nome = "";
 		string senha = "";
 		int recorde = 0;
-		Salvamento* salvamentos[3];
+		list<Salvamento> salvamentos;
 		Heroi* heroi;
 
 };

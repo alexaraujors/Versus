@@ -14,11 +14,6 @@ Heroi::~Heroi()
 
 void Heroi::inicializarPaineis()
 {
-	vida = 200;
-	defesa = 30;
-	forca = 50;
-	ouro = 0;
-
 	painelVida.inicializa("h_v", VERMELHO, mapa);
 	painelDefesa.inicializa("h_d", AZUL, mapa);
 	painelAtaque.inicializa("h_a", AMARELO, mapa);
@@ -44,4 +39,15 @@ int Heroi::getOuro()
 void Heroi::passaFase()
 {
 	fase++;
+}
+
+void Heroi::carregaSalvamento(Salvamento salvamento)
+{
+	this->vida = salvamento.getVida();
+	this->forca = salvamento.getForca();
+	this->defesa = salvamento.getDefesa();
+	this->ouro = salvamento.getOuro();
+	this->fase = salvamento.getFase();
+
+	inicializarPaineis();
 }

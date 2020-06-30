@@ -116,7 +116,8 @@ void Personagem::ganhaVida(int qtd)
 void Personagem::perdeVida(int qtd)
 {
 	vida -= qtd;
-	if (vida < 0) {
+	if (vida < 0) 
+	{
 		vida = 0;
 	}
 	painelVida.defineValor(vida);
@@ -131,7 +132,8 @@ void Personagem::ganhaDefesa(int qtd)
 void Personagem::perdeDefesa(int qtd)
 {
 	defesa -= qtd;
-	if (defesa < 0) {
+	if (defesa < 0) 
+	{
 		defesa = 0;
 	}
 	painelDefesa.defineValor(defesa);
@@ -146,10 +148,10 @@ void Personagem::ganhaForca(int qtd)
 void Personagem::perdeForca(int qtd)
 {
 	forca -= qtd;
-	if (forca < 0) {
+	if (forca < 0) 
+	{
 		forca = 0;
 	}
-
 	painelAtaque.defineValor(forca);
 }
 
