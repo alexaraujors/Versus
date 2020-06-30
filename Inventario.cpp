@@ -35,7 +35,7 @@ bool Inventario::adicionarPocao(Pocao * pocao)
 	return true;
 }
 
-/*
+
 bool Inventario::utilizarPocao(int numero, Heroi * heroi)
 {
 	if (numero <= numeroPocoes) {
@@ -54,16 +54,17 @@ bool Inventario::utilizarPocao(int numero, Heroi * heroi)
 	}
 	return true;
 }
-*/
+
 
 Pocao * Inventario::getPrimeiraPocao()
 {
 	return primeira;
 }
 
-/*
-string Inventario::listar()
-{
+
+//string Inventario::listar()
+//{
+	/*
 	string lista="";
 	ItemInventario* proximo = this->primeiroItem;
 	while (proximo!=nullptr)
@@ -72,5 +73,6 @@ string Inventario::listar()
 		proximo = proximo->getProximo();
 	}
 	return lista;
-}
-*/
+	*/
+//}
+

@@ -1,5 +1,6 @@
 #pragma once
 #include "libUnicornio.h"
+#include "Heroi.h"
 
 class Pocao
 {
@@ -12,11 +13,11 @@ protected:
     int valor = 0;
 
 public:
-    //virtual void usar(Heroi * heroi);
+    virtual void usar(Heroi * heroi);
     
     Pocao * getProximo();
     void setProximo(Pocao * pocao);
 
-//    void inicializar(string sheet, ObjetoTileMap * obj);
+    void inicializar(string sheet, ObjetoTileMap * obj);
 };
 

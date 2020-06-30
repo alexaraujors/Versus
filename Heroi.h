@@ -12,7 +12,7 @@ protected:
     int fase = 0;
 
     Painel painelOuro;
-    Inventario * inventario;
+    Inventario inventario;
 
 public:
     Heroi();
@@ -23,6 +23,7 @@ public:
     void ganhaOuro(int qtd);
     int getOuro();
     void passaFase();
+    void reiniciar();
 
     void carregaSalvamento(Salvamento salvamento);
 };

@@ -184,7 +184,7 @@ void Jogo::verificaAnimacaoFinalBatalha()
 
 		if (danoHeroi < danoGuerreiro) 
 		{
-			heroi.ganhaOuro(100);
+			heroi.ganhaOuro(75);
 		}
 
 		if (heroi.getVida() == 0) 
@@ -197,7 +197,7 @@ void Jogo::verificaAnimacaoFinalBatalha()
 		{
 			guerreiro.morrer();
 			inicioMorte = clock();
-			heroi.ganhaOuro(150);
+			heroi.ganhaOuro(125);
 		}
 	}
 }
@@ -211,6 +211,8 @@ void Jogo::verificaAnimacaoFinalMorte()
 		
 		if (heroi.getVida() <= 0) {
 			pilhaTelas.push(tGameOver);
+			heroi.reiniciar();
+			heroi.parar();
 		}
 	}
 }
@@ -459,7 +461,7 @@ void Jogo::telaSalvamentos()
 	if (botaoNovo.estaClicado())
 	{
 		pilhaTelas.push(tJogo);
-		heroi.atualizarSprite
+		heroi.reiniciar();
 	}
 
 	cabecalho.setString("Selecione um salvamento");

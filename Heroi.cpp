@@ -41,6 +41,15 @@ void Heroi::passaFase()
 	fase++;
 }
 
+void Heroi::reiniciar()
+{
+	this->vida = 100;
+	this->defesa = 30;
+	this->forca = 50;
+	this->ouro = 0;
+	this->fase = 1;
+}
+
 void Heroi::carregaSalvamento(Salvamento salvamento)
 {
 	if (salvamento.getDataHora()!= "") {
