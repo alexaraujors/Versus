@@ -2,10 +2,10 @@
 
 Heroi::Heroi()
 {
-	vida = 100;
-	forca = 50;
-	defesa = 30;
-	ouro = 0;
+	this->vida = 100;
+	this->forca = 50;
+	this->defesa = 30;
+	this->ouro = 0;
 }
 
 Heroi::~Heroi()
@@ -27,7 +27,7 @@ void Heroi::inicializarPaineis()
 
 void Heroi::ganhaOuro(int qtd)
 {
-	ouro += qtd;
+	this->ouro += qtd;
 	painelOuro.defineValor(ouro);
 }
 
@@ -38,7 +38,12 @@ int Heroi::getOuro()
 
 void Heroi::passaFase()
 {
-	fase++;
+	this->fase++;
+	this->vida = 70 + this->fase * 30;
+	this->forca = 20 + this->fase * 15;
+	this->defesa = 20 + this->fase * 10;
+	this->parar();
+	this->inicializarPaineis();
 }
 
 void Heroi::reiniciar()
@@ -48,6 +53,9 @@ void Heroi::reiniciar()
 	this->forca = 50;
 	this->ouro = 0;
 	this->fase = 1;
+
+	this->parar();
+	this->inicializarPaineis();
 }
 
 void Heroi::carregaSalvamento(Salvamento salvamento)

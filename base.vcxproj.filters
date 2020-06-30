@@ -99,9 +99,6 @@
     <ClInclude Include="SistemaLogin.h">
       <Filter>Login</Filter>
     </ClInclude>
-    <ClInclude Include="Usuario.h">
-      <Filter>Login</Filter>
-    </ClInclude>
     <ClInclude Include="InputTexto.h">
       <Filter>Login</Filter>
     </ClInclude>

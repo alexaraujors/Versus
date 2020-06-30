@@ -1,7 +1,7 @@
 #pragma once
-#include <iostream>
 #include "Pocao.h"
-#include "Heroi.h"
+//#include <iostream>
+//#include "Heroi.h"
 
 class Inventario
 {
@@ -10,7 +10,7 @@ class Inventario
 		~Inventario();
 
 		bool adicionarPocao(Pocao * pocao);
-		bool utilizarPocao(int numero, Heroi * heroi);
+//		bool utilizarPocao(int numero, Heroi* heroi);
 
 		Pocao * getPrimeiraPocao();
 

@@ -18,10 +18,7 @@ void Guerreiro::atacar()
 
 void Guerreiro::inicializarPaineis()
 {
-	vida = 100;
-	defesa = 30;
-	forca = 50;
-
+	
 	painelVida.inicializa("w_v", VERMELHO, mapa);
 	painelDefesa.inicializa("w_d", AZUL, mapa);
 	painelAtaque.inicializa("w_a", AMARELO, mapa);
@@ -29,4 +26,13 @@ void Guerreiro::inicializarPaineis()
 	painelVida.defineValor(vida);
 	painelDefesa.defineValor(defesa);
 	painelAtaque.defineValor(forca);
+}
+
+void Guerreiro::reiniciar(int fase)
+{	
+	this->vida = 70  + fase * 30;
+	this->forca = 10 + fase * 10;
+	this->defesa = 30 + fase * 20;
+	this->parar();
+	this->inicializarPaineis();
 }

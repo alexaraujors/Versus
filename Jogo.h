@@ -66,7 +66,7 @@ private:
 	// Resto
 	TileMap mapa;
 	Sprite action;
-	int fase;
+	int fase = 1;
 
 	Heroi heroi;
 	Guerreiro guerreiro;

@@ -1,9 +1,9 @@
 #pragma once
 #include "Personagem.h"
-#include "Inventario.h"
 #include "Painel.h"
 #include "Salvamento.h"
 
+//#include "Inventario.h"
 class Heroi : 
     public Personagem
 {
@@ -12,7 +12,7 @@ protected:
     int fase = 0;
 
     Painel painelOuro;
-    Inventario inventario;
+//    Inventario * inventario;
 
 public:
     Heroi();

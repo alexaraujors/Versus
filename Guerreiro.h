@@ -11,5 +11,6 @@ public:
 
     void atacar();
     void inicializarPaineis();
+    void reiniciar(int fase);
 };
 

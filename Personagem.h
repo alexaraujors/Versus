@@ -23,6 +23,7 @@ public:
 	int getAtaque();
 	int getDefesa();
 	int getVida();
+	int getFase();
 
 	void ganhaVida(int qtd);
 	void perdeVida(int qtd);
@@ -36,7 +37,7 @@ public:
 	void parar();
 
 protected:
-	int vida, forca, defesa;
+	int vida, forca, defesa, fase;
 	
 	string sheetParado;
 	string sheetAtacando;

@@ -94,17 +94,22 @@ void Personagem::atualizarAnimacao()
 
 int Personagem::getAtaque()
 {
-	return forca;
+	return this->forca;
 }
 
 int Personagem::getDefesa()
 {
-	return defesa;
+	return this->defesa;
 }
 
 int Personagem::getVida()
 {
-	return vida;
+	return this->vida;
+}
+
+int Personagem::getFase()
+{
+	return this->fase;
 }
 
 void Personagem::ganhaVida(int qtd)
@@ -115,12 +120,12 @@ void Personagem::ganhaVida(int qtd)
 
 void Personagem::perdeVida(int qtd)
 {
-	vida -= qtd;
-	if (vida < 0) 
+	this->vida -= qtd;
+	if (this->vida < 0)
 	{
-		vida = 0;
+		this->vida = 0;
 	}
-	painelVida.defineValor(vida);
+	painelVida.defineValor(this->vida);
 }
 
 void Personagem::ganhaDefesa(int qtd)

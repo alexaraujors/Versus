@@ -1,6 +1,5 @@
-using namespace std;
-
 #include "Inventario.h"
+//using namespace std;
 //#include <iostream>
 //#include <stdio.h>
 //#include <stdlib.h>
@@ -35,7 +34,7 @@ bool Inventario::adicionarPocao(Pocao * pocao)
 	return true;
 }
 
-
+/*
 bool Inventario::utilizarPocao(int numero, Heroi * heroi)
 {
 	if (numero <= numeroPocoes) {
@@ -54,17 +53,16 @@ bool Inventario::utilizarPocao(int numero, Heroi * heroi)
 	}
 	return true;
 }
-
+*/
 
 Pocao * Inventario::getPrimeiraPocao()
 {
 	return primeira;
 }
 
-
-//string Inventario::listar()
-//{
-	/*
+/*
+string Inventario::listar()
+{
 	string lista="";
 	ItemInventario* proximo = this->primeiroItem;
 	while (proximo!=nullptr)
@@ -73,6 +71,5 @@ Pocao * Inventario::getPrimeiraPocao()
 		proximo = proximo->getProximo();
 	}
 	return lista;
-	*/
-//}
-
+}
+*/

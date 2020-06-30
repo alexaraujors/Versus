@@ -65,9 +65,6 @@ void Jogo::inicializar()
 	corpo.setCor(branco);
 	corpo.setFonte("arial");
 
-	// Inicializa a fase
-	fase = 1;
-	setFase(fase);
 }
 
 void Jogo::finalizar()
@@ -118,19 +115,13 @@ void Jogo::executar()
 		uniIniciarFrame();
 
 		// Verifica as teclas do teclado e caso forem pressionadas
-		// seta o destino do player
 		atualizarInput();
 
-		// Verifica final da batalha
+		// Verifica final de animações da batalha e da morte
 		verificaAnimacaoFinalBatalha();
 		verificaAnimacaoFinalMorte();
 		
-		// Atualizar heroi e as guerreiros
-		heroi.atualizar();
-		
-		atualizarGuerreiro();
-
-		// Desenhar o tilemap (player eh desenhado junto)
+		// Desenhar o tilemap
 		mapa.desenhar();
 
 		uniTerminarFrame();
@@ -179,8 +170,8 @@ void Jogo::verificaAnimacaoFinalBatalha()
 		int danoHeroi = guerreiro.getAtaque() + guerreiroPlus - heroi.getDefesa();
 		int danoGuerreiro = heroi.getAtaque() + heroiPlus - guerreiro.getDefesa();
 
-		heroi.perdeVida(danoHeroi);
-		guerreiro.perdeVida(danoGuerreiro);
+		if(danoHeroi>0) heroi.perdeVida(danoHeroi);
+		if(danoGuerreiro>0) guerreiro.perdeVida(danoGuerreiro);
 
 		if (danoHeroi < danoGuerreiro) 
 		{
@@ -206,14 +197,15 @@ void Jogo::verificaAnimacaoFinalMorte()
 {
 	if (this->inicioMorte > 0.0 && ((clock() - this->inicioMorte) / CLOCKS_PER_SEC >= 2)) 
 	{
-		setFase(++fase);
-		inicioMorte = 0.0;
-		
 		if (heroi.getVida() <= 0) {
 			pilhaTelas.push(tGameOver);
-			heroi.reiniciar();
-			heroi.parar();
+		} else 
+		{
+			this->heroi.passaFase();
+			setFase(++fase);
 		}
+		inicioMorte = 0.0;
+		
 	}
 }
 
@@ -232,8 +224,9 @@ void Jogo::setFase(int fase)
 	default:
 		break;
 	}
-	guerreiro.parar();
-	guerreiro.inicializarPaineis();
+	this->guerreiro.parar();
+	this->guerreiro.reiniciar(fase);
+	this->guerreiro.inicializarPaineis();
 }	
 
 void Jogo::inicializarGuerreiros()
@@ -438,32 +431,33 @@ void Jogo::telaSalvamentos()
 
 	if (gTeclado.pressionou[TECLA_ESC] || botaoVoltar.estaClicado()) pilhaTelas.pop();
 
-	Salvamento salvamentoSelecionado;
-
 	if (botaoSalvamento1.estaClicado()) 
 	{
 		pilhaTelas.push(tJogo);
-		salvamentoSelecionado = this->login.getJogador().buscaSalvamento(1);
+		Salvamento salvamentoSelecionado = this->login.getJogador().buscaSalvamento(1);
 		this->heroi.carregaSalvamento(salvamentoSelecionado);
+		this->setFase(salvamentoSelecionado.getFase());
 	}
 	if (botaoSalvamento2.estaClicado())
 	{
 		pilhaTelas.push(tJogo);
-		salvamentoSelecionado = this->login.getJogador().buscaSalvamento(2);
+		Salvamento salvamentoSelecionado = this->login.getJogador().buscaSalvamento(2);
 		this->heroi.carregaSalvamento(salvamentoSelecionado);
+		this->setFase(salvamentoSelecionado.getFase());
 	}
 	if (botaoSalvamento3.estaClicado())
 	{
 		pilhaTelas.push(tJogo);
-		salvamentoSelecionado = this->login.getJogador().buscaSalvamento(3);
+		Salvamento salvamentoSelecionado = this->login.getJogador().buscaSalvamento(3);
 		this->heroi.carregaSalvamento(salvamentoSelecionado);
+		this->setFase(salvamentoSelecionado.getFase());
 	}
 	if (botaoNovo.estaClicado())
 	{
 		pilhaTelas.push(tJogo);
-		heroi.reiniciar();
+		this->heroi.reiniciar();
+		this->setFase(1);
 	}
-
 	cabecalho.setString("Selecione um salvamento");
 	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
 }

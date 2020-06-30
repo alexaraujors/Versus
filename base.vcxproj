@@ -135,7 +135,6 @@
     <ClInclude Include="Recorde.h" />
     <ClInclude Include="Salvamento.h" />
     <ClInclude Include="SistemaLogin.h" />
-    <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="bin\assets\background\Arena Tileset.png" />
