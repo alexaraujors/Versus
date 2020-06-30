@@ -7,7 +7,7 @@
 #include "HighScores.h"
 //#include "Bonus.h"
 
-enum Tela { tMenuPrincipal, tJogo, tCreditos, tPausa, tCadastrar, tLogin, tInicial, tRanking, tSalvamentos };
+enum Tela { tMenuPrincipal, tJogo, tCreditos, tPausa, tGameOver, tCadastrar, tLogin, tInicial, tRanking, tSalvamentos };
 
 class Jogo
 {
@@ -56,6 +56,7 @@ private:
 	void telaJogo();
 	void telaCreditos();
 	void telaPausa();
+	void telaGameOver();
 	void telaInicial();
 	void telaCadastrar();
 	void telaLogin();

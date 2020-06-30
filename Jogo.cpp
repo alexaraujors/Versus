@@ -95,6 +95,8 @@ void Jogo::executar()
 			break;
 		case tPausa: telaPausa();
 			break;
+		case tGameOver: telaGameOver();
+			break;
 		case tMenuPrincipal: telaMenuPrincipal();
 			break;
 		case tInicial: telaInicial();
@@ -206,6 +208,10 @@ void Jogo::verificaAnimacaoFinalMorte()
 	{
 		setFase(++fase);
 		inicioMorte = 0.0;
+		
+		if (heroi.getVida() <= 0) {
+			pilhaTelas.push(tGameOver);
+		}
 	}
 }
 
@@ -325,6 +331,22 @@ void Jogo::telaPausa()
 	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
 }
 
+void Jogo::telaGameOver()
+{
+	mapa.desenhar();
+
+	configurarBotoes(&botaoSair, gJanela.getLargura() * 0.5, gJanela.getAltura() * 0.5, "Sair do jogo", "botaoPequeno");
+
+	botaoLoop(&botaoSair, true);
+
+	if (gTeclado.pressionou[TECLA_ESC] || botaoSair.estaClicado()) { 
+		pilhaTelas.pop(); pilhaTelas.pop(); pilhaTelas.pop(); 
+	}
+
+	cabecalho.setString("Game Over");
+	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
+}
+
 void Jogo::telaInicial() 
 {
 	configurarBotoes(&botaoLogar, gJanela.getLargura() / 2, gJanela.getAltura() / 2, "Logar", "botaoPequeno");
@@ -437,9 +459,9 @@ void Jogo::telaSalvamentos()
 	if (botaoNovo.estaClicado())
 	{
 		pilhaTelas.push(tJogo);
-		this->heroi.carregaSalvamento(salvamentoSelecionado);
+		heroi.atualizarSprite
 	}
+
 	cabecalho.setString("Selecione um salvamento");
 	cabecalho.desenhar(gJanela.getLargura() / 2, gJanela.getAltura() / 4);
 }
-

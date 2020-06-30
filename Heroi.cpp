@@ -43,11 +43,13 @@ void Heroi::passaFase()
 
 void Heroi::carregaSalvamento(Salvamento salvamento)
 {
-	this->vida = salvamento.getVida();
-	this->forca = salvamento.getForca();
-	this->defesa = salvamento.getDefesa();
-	this->ouro = salvamento.getOuro();
-	this->fase = salvamento.getFase();
+	if (salvamento.getDataHora()!= "") {
+		this->vida = salvamento.getVida();
+		this->forca = salvamento.getForca();
+		this->defesa = salvamento.getDefesa();
+		this->ouro = salvamento.getOuro();
+		this->fase = salvamento.getFase();
+		inicializarPaineis();
+	}
 
-	inicializarPaineis();
 }

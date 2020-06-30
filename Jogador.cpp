@@ -19,6 +19,7 @@ Salvamento Jogador::buscaSalvamento(int posicao)
 			return salv;
 		}
 	}
+	return *(new Salvamento());
 }
 
 Jogador::Jogador()
